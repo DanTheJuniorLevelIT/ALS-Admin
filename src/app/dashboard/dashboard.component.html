@@ -1,33 +1,35 @@
 <body>
-    <input type="checkbox" id="check">
-    <label for="check">
-      <i class="fas fa-bars" id="btn"></i>
-      <i class="fas fa-times" id="cancel"></i>
-    </label>
-    <div class="sidebar">
+  <input type="checkbox" id="check" aria-hidden="true">
+  <label for="check" aria-label="Toggle sidebar">
+      <i class="fas fa-bars" id="btn" aria-hidden="true"></i>
+      <i class="fas fa-times" id="cancel" aria-hidden="true"></i>
+  </label>
+  
+  <nav class="sidebar" role="navigation" aria-label="Main Menu">
       <header>Menu</header>
-      <a [routerLink]="['/main/mainHome']" class="active">
-        <i class="fas fa-qrcode"></i>
-        <span>Home</span>
+      <a [routerLink]="['/main/Home/mainHome/enroll']" class="active" aria-current="page">
+          <i class="fas fa-qrcode"></i>
+          <span>Home</span>
       </a>
-      <a [routerLink]="['/main/mainClass']">
-        <i class="fas fa-link"></i>
-        <span>Class</span>
+      <a [routerLink]="['/main/Class/mainClass']">
+          <i class="fas fa-link"></i>
+          <span>Class</span>
       </a>
-      <a [routerLink]="['/main/mainStudents']">
-        <i class="fas fa-stream"></i>
-        <span>Students</span>
+      <a [routerLink]="['/main/Student/mainStudent']">
+          <i class="fas fa-stream"></i>
+          <span>Students</span>
       </a>
-      <a [routerLink]="['/main/mainTeachers']">
-         <i class="fas fa-calendar"></i>
-        <span>Teachers</span>
+      <a [routerLink]="['/main/Teacher/mainTeacher']">
+          <i class="fas fa-calendar"></i>
+          <span>Teachers</span>
       </a>
-      <a [routerLink]="['/main/mainAccount']">
-        <i class="far fa-question-circle"></i>
-        <span>Account</span>
+      <a [routerLink]="['/main/Account/mainAccount']">
+          <i class="far fa-question-circle"></i>
+          <span>Account</span>
       </a>
-    </div>
+  </nav>
+  
+  <div class="frame">
+      <router-outlet></router-outlet>
+  </div>
 </body>
-<div class="frame">
-    <router-outlet></router-outlet>
-</div>  
