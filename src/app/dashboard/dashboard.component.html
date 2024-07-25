@@ -1,1 +1,33 @@
-<p>dashboard works!</p>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+      <header>Menu</header>
+      <a [routerLink]="['/main/mainHome']" class="active">
+        <i class="fas fa-qrcode"></i>
+        <span>Home</span>
+      </a>
+      <a [routerLink]="['/main/mainClass']">
+        <i class="fas fa-link"></i>
+        <span>Class</span>
+      </a>
+      <a [routerLink]="['/main/mainStudents']">
+        <i class="fas fa-stream"></i>
+        <span>Students</span>
+      </a>
+      <a [routerLink]="['/main/mainTeachers']">
+         <i class="fas fa-calendar"></i>
+        <span>Teachers</span>
+      </a>
+      <a [routerLink]="['/main/mainAccount']">
+        <i class="far fa-question-circle"></i>
+        <span>Account</span>
+      </a>
+    </div>
+</body>
+<div class="frame">
+    <router-outlet></router-outlet>
+</div>  

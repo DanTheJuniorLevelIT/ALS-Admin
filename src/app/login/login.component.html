@@ -1,1 +1,23 @@
-<p>login works admin!</p>
+<section>
+    <div class="center">
+        <h1>Admin</h1>
+        <form>
+          <div class="txt_field">
+            <input type="text" formControlName="username">
+            <span></span>
+            <label>Username</label>
+          </div>
+          <div class="txt_field">
+            <input type="password" formControlName="pas">
+            <span></span>
+            <label>Password</label>
+          </div>
+          <div class="pass">Forgot Password?</div>
+          <p><a [routerLink]="['/main/Home/mainHome/enroll']">submit</a></p>
+          <!-- <input type="submit" ><a [routerLink]="['/main/mainHome/enrollStudents']"></a> -->
+          <div class="signup_link">
+            Not a member? <a href="#">Signup</a>
+          </div>
+        </form>
+    </div>
+</section>
