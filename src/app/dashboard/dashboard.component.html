@@ -1,35 +1,35 @@
 <body>
-  <input type="checkbox" id="check" aria-hidden="true">
-  <label for="check" aria-label="Toggle sidebar">
-      <i class="fas fa-bars" id="btn" aria-hidden="true"></i>
-      <i class="fas fa-times" id="cancel" aria-hidden="true"></i>
-  </label>
-  
-  <nav class="sidebar" role="navigation" aria-label="Main Menu">
-      <header>Menu</header>
-      <a [routerLink]="['/main/Home/mainHome/enroll']" class="active" aria-current="page">
-          <i class="fas fa-qrcode"></i>
-          <span>Home</span>
-      </a>
-      <a [routerLink]="['/main/Class/mainClass']">
-          <i class="fas fa-link"></i>
-          <span>Class</span>
-      </a>
-      <a [routerLink]="['/main/Student/mainStudent']">
-          <i class="fas fa-stream"></i>
-          <span>Students</span>
-      </a>
-      <a [routerLink]="['/main/Teacher/mainTeacher']">
-          <i class="fas fa-calendar"></i>
-          <span>Teachers</span>
-      </a>
-      <a [routerLink]="['/main/Account/mainAccount']">
-          <i class="far fa-question-circle"></i>
-          <span>Account</span>
-      </a>
-  </nav>
-  
-  <div class="frame">
-      <router-outlet></router-outlet>
-  </div>
+    <input type="checkbox" id="check" aria-hidden="true">
+    <label for="check" class="menu-toggle" aria-label="Toggle sidebar">
+        <i class="fas fa-bars" id="btn" aria-hidden="true"></i>
+        <i class="fas fa-times" id="cancel" aria-hidden="true"></i>
+    </label>
+    
+    <nav class="sidebar" role="navigation" aria-label="Main Menu">
+        <header>Menu</header>
+        <a [routerLink]="['/main/Home/mainHome/enroll']" class="active" aria-current="page">
+            <i class="fas fa-qrcode"></i>
+            <span>Home</span>
+        </a>
+        <a [routerLink]="['/main/Class/mainClass']">
+            <i class="fas fa-link"></i>
+            <span>Class</span>
+        </a>
+        <a [routerLink]="['/main/Student/mainStudent']">
+            <i class="fas fa-stream"></i>
+            <span>Students</span>
+        </a>
+        <a [routerLink]="['/main/Teacher/mainTeacher']">
+            <i class="fas fa-calendar"></i>
+            <span>Teachers</span>
+        </a>
+        <a [routerLink]="['/main/Account/mainAccount']">
+            <i class="far fa-question-circle"></i>
+            <span>Account</span>
+        </a>
+    </nav>
+    
+    <div class="frame">
+        <router-outlet></router-outlet>
+    </div>
 </body>

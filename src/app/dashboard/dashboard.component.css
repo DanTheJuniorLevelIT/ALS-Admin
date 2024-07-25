@@ -13,7 +13,7 @@ body {
   color: white;
   position: fixed;
   height: 100%;
-  left: 0; /* Start visible */
+  left: -250px; /* Initially hidden */
   transition: left 0.3s ease;
   overflow-y: auto;
   z-index: 1000;
@@ -53,48 +53,69 @@ body {
 
 /* Checkbox to toggle sidebar */
 #check:checked ~ .sidebar {
-  left: -250px; /* Hide sidebar when checked */
+  left: 0; /* Show sidebar when checked */
 }
 
 /* Styling for the toggle button */
-label {
+.menu-toggle {
   position: absolute;
   top: 20px;
   left: 20px;
   cursor: pointer;
   z-index: 1100;
+  display: flex;
+  align-items: center;
+}
+
+/* Adjusting the checkbox alignment */
+input[type="checkbox"] {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  z-index: 1200;
+  cursor: pointer;
 }
 
 /* Toggle button icons */
 #btn, #cancel {
   font-size: 24px;
-  color: #2c3e50;
+  color: #6e2227;
+  margin-left: 10px;
 }
 
-/* Initially show the cancel icon */
+/* Initially show the bar icon */
+#btn {
+  display: inline;
+}
+
+/* Initially hide the cancel icon */
 #cancel {
-  display: inline;
-}
-
-/* Hide cancel icon when sidebar is closed */
-#check:checked ~ label #btn {
-  display: inline;
-}
-
-#check:checked ~ label #cancel {
   display: none;
+}
+
+/* Toggle icons when sidebar is open */
+#check:checked ~ .menu-toggle #btn {
+  display: none;
+}
+
+#check:checked ~ .menu-toggle #cancel {
+  display: inline;
 }
 
 /* Frame styling */
 .frame {
-  margin-left: 250px; /* Offset for sidebar */
-  padding: 20px;
-  width: calc(100% - 250px);
+  margin-left: 0; /* No offset initially */
+  padding: 30px;
+  width: 100%;
   transition: margin-left 0.3s ease;
 }
 
 /* Adjust frame width when sidebar is open */
 #check:checked ~ .frame {
-  margin-left: 0; 
-  width: 100%;
+  margin-left: 250px; 
+  padding: 20px;
+  width: calc(100% - 250px);
 }
