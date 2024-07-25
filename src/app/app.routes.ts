@@ -3,8 +3,8 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { homeRoute } from './Modules/Home/home.routes';
 import { accountRoute } from './Modules/Account/account.routes';
-import { studentRoute } from './Modules/Students/student.routes';
 import { classRoute } from './Modules/Classes/class.routes';
+import { studentRoute } from './Modules/Students/student.routes';
 import { teacherRoute } from './Modules/Teachers/teacher.routes';
 
 export const routes: Routes = [
