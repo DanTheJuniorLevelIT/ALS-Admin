@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SummaryComponent } from './summary.component';
+import { AssignClassComponent } from './assign-class.component';
 
-describe('SummaryComponent', () => {
-  let component: SummaryComponent;
-  let fixture: ComponentFixture<SummaryComponent>;
+describe('AssignClassComponent', () => {
+  let component: AssignClassComponent;
+  let fixture: ComponentFixture<AssignClassComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SummaryComponent]
+      imports: [AssignClassComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SummaryComponent);
+    fixture = TestBed.createComponent(AssignClassComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

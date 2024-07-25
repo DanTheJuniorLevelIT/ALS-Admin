@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { AccountInfoComponent } from './account-info/account-info.component';
-import { EditComponent } from './edit/edit.component';
+import { ChangePassComponent } from './change-pass/change-pass.component';
+
 
 export const accountRoute: Routes = [
     {path: 'accountInfo', component: AccountInfoComponent},
-    {path: 'edit', component: EditComponent},
+    {path: 'changePass', component: ChangePassComponent},
     {path: '', redirectTo: 'accountInfo', pathMatch: 'full'}
 ];
