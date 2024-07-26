@@ -25,14 +25,17 @@
   }
 
   .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #60B3D1;
+    border-color: #60B3D1;
     color: #fff;
   }
 
   .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004a99;
+    background-color: #012641;
+    border-color: #012641;
   }
-
+.card{
+  background-color: #F2F2F2;
+  border-color: #F4FBFD;
+}
 
