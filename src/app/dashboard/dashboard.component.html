@@ -1,4 +1,4 @@
-<body>
+<div>
     <input type="checkbox" id="check" aria-hidden="true">
     <label for="check" class="menu-toggle" aria-label="Toggle sidebar">
         <i class="fas fa-bars" id="btn" aria-hidden="true"></i>
@@ -8,7 +8,7 @@
     <nav class="sidebar" role="navigation" aria-label="Main Menu">
         <header>Menu</header>
         <a [routerLink]="['/main/Home/mainHome/enroll']">
-            <i class="fas fa-qrcode"></i>
+            <i class="fa fa-home"></i>
             <span>Home</span>
         </a>
         <a [routerLink]="['/main/Class/mainClass']">
@@ -16,7 +16,7 @@
             <span>Class</span>
         </a>
         <a [routerLink]="['/main/Student/mainStudent']">
-            <i class="fas fa-stream"></i>
+            <i class="fa fa-user"></i>
             <span>Students</span>
         </a>
         <a [routerLink]="['/main/Teacher/mainTeacher']">
@@ -24,7 +24,7 @@
             <span>Teachers</span>
         </a>
         <a [routerLink]="['/main/Account/mainAccount']">
-            <i class="far fa-question-circle"></i>
+            <i class="fa fa-user-circle"></i>
             <span>Account</span>
         </a>
     </nav>
@@ -32,4 +32,4 @@
     <div class="frame">
         <router-outlet></router-outlet>
     </div>
-</body>
+</div>

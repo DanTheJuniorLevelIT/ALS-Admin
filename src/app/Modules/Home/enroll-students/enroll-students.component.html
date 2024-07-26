@@ -1,23 +1,29 @@
 <div class="container mt-3">
-    <h2>List of enrolled students</h2>
-    <div class="table-responsive">
+  <h2>List of enrolled students</h2>
+  <div class="d-flex justify-content-end mb-3">
+      <a [routerLink]="['/main/Home/mainHome/assingclass']" class="btn btn-success">
+          <i class="fa fa-plus"></i>
+          <span>Assign Class</span>
+      </a>
+  </div>
+  <div class="table-responsive">
       <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Middlename</th>
-            <th>Age</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Anna</td>
-            <td>Pitt</td>
-            <td>B</td>
-            <td>35</td>
-          </tr>
-        </tbody>
+          <thead>
+              <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Middlename</th>
+                  <th>Age</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Anna</td>
+                  <td>Pitt</td>
+                  <td>B</td>
+                  <td>35</td>
+              </tr>
+          </tbody>
       </table>
-    </div>
+  </div>
 </div>
