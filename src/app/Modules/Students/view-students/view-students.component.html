@@ -1,1 +1,29 @@
-<p>view-students works!</p>
+<div class="container mt-3">
+    <h2>List of Students</h2>
+    <div class="d-flex justify-content-end mb-3">
+        <a [routerLink]="['/main/Student/mainStudent/updateRecordS']" class="btn btn-success">
+            <i class="fa fa-pencil-square"></i>
+            <span>Update Record</span>
+        </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Middlename</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Anna</td>
+                    <td>Pitt</td>
+                    <td>B</td>
+                    <td>35</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
