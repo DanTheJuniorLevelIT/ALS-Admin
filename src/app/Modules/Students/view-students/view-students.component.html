@@ -1,1 +1,35 @@
-<p>view-students works!</p>
+<div class="container-fluid table mt-5">
+    <h2>List of Students</h2>
+    <section class="table_body">
+        <table class="table table-hover">
+            <thead class="head">
+                <tr style="font-size: 13px;">
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Birthday</th>
+                    <th>Place of Birth</th>
+                    <th>Assign Class</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="font-size: 13px;">
+                <tr class="tab">
+                    <td>Cruz, Anne C.</td>
+                    <td>09128564423</td>
+                    <td>01/03/01</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>Mathematics</td>
+                    <td><i class="fa fa-edit" aria-hidden="true"></i><a [routerLink]="['/main/Student/mainStudent/updateRecordS']"></a></td>
+                </tr>
+                <tr class="tab">
+                    <td>Hernandez</td>
+                    <td>09642138633</td>
+                    <td>11/23/03</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>English</td>
+                    <td><i class="fa fa-edit" aria-hidden="true"><a [routerLink]="['/main/Student/mainStudent/updateRecordS']"></a></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>

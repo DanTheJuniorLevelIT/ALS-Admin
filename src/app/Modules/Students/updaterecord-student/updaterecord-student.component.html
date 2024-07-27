@@ -1,1 +1,86 @@
-<p>updaterecord-student works!</p>
+<div class="container mt-3">
+    <h2>Update Student Record</h2>
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 m-2">
+            <div class="card" style="box-shadow: 0 .5rem .9rem #0005;">
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="ltname">Lastname</label>
+                                    <input type="text" name="ltname" formControlName="lname" id="ltname" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="ftname">Firstname</label>
+                                    <input type="text" name="ftname" formControlName="fname" id="ftname" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="mdname">Middlename</label>
+                                    <input type="text" name="mdname" formControlName="mname" id="mdname" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="exname">Extension Name e.g, Jr, III</label>
+                                    <input type="text" name="exname" formControlName="exname" id="exname" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="religion">Religion</label>
+                                    <input type="text" name="religion" formControlName="religion" id="religion" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="birthdayt">Birthday</label>
+                                    <input type="date" formControlName="birthdate" id="birthdayt" name="birthdayt" class="form-control" placeholder="Birthday*" value="" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="birthplace">Place of Birth</label>
+                                    <input type="text" formControlName="birthplace" id="birthplace" name="birthplace" class="form-control" placeholder="" value="" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="phonenum">Phone No.</label>
+                                    <input type="text" id="phonenum" formControlName="phone" name="phonenum" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <h6 class="mb-3 pb-1">Gender: </h6>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="option1" checked />
+                                    <label class="form-check-label" for="femaleGender">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="option2" />
+                                    <label class="form-check-label" for="maleGender">Male</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <label class="form-label" for="assignclass">Assign Class</label>
+                                <select class="form-select form-select-md" id="assignclass">
+                                    <option>English</option>
+                                    <option>Science</option>
+                                    <option>Filipino</option>
+                                    <option>Mathematics</option>
+                                </select>
+                            </div>
+                            <div class="col-12 ">
+                                <button type="submit" class="btn text-white">Submit</button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
