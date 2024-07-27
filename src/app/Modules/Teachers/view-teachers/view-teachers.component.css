@@ -89,4 +89,9 @@ tbody tr:hover {
         text-align: left;
         font-weight: bold;
     }
+   
+    .new-teacher-btn {
+        margin-top: 10px; /* Adjust as needed */
+    }
+
 }

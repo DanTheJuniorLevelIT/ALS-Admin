@@ -1,12 +1,13 @@
 <div class="container-fluid table mt-5">
-    <div  class="row">
+    <div class="row">
         <div class="col-3 ms-4">
             <h2>List of Teachers</h2>
         </div>
-        <div class="col-6" >
+        <div class="col-6">
             <div class="d-flex justify-content-end mb-1 form-group">
+                <!-- Button moved to the right side -->
                 <a [routerLink]="['/main/Teacher/mainTeacher/newTeacher']" class="btn" style="background-color: rgba(98, 163, 157, 0.267);">
-                    <i class="fa fa-plus" style="background-color: rgba(98, 163, 157, 0.267);"> New Teacher</i>
+                    <i class="fa fa-plus" style="background-color: rgba(98, 163, 157, 0.267);"></i> New Teacher
                 </a>
             </div>
         </div>
@@ -34,7 +35,7 @@
                     <td>virginiagmail.com</td>
                     <td>
                         <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
+                            <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
                     </td>
                 </tr>
@@ -47,9 +48,9 @@
                     <td>Crisgmail.com</td>
                     <td>
                         <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
+                            <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
-                      </td>
+                    </td>
                 </tr>
                 <tr class="tab">
                     <td>Tamayo, Carl Ann Yag-at M.</td>
@@ -60,9 +61,9 @@
                     <td>anngmail.com</td>
                     <td>
                         <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
+                            <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
-                      </td>
+                    </td>
                 </tr>
                 <tr class="tab">
                     <td>Patayan, Mylene A.</td>
@@ -73,9 +74,9 @@
                     <td>mylenegmail.com</td>
                     <td>
                         <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
+                            <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
-                      </td>
+                    </td>
                 </tr>
             </tbody>
         </table>
