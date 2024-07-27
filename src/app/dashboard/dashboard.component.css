@@ -9,7 +9,7 @@ body {
 /* Styling for the sidebar */
 .sidebar {
   width: 250px;
-  background-color: #0F3041;
+  background-color: #012641;
   color: white;
   position: fixed;
   height: 100%;
@@ -24,7 +24,7 @@ body {
   padding: 20px;
   font-size: 1.5em;
   text-align: center;
-  background-color: #0F3041;
+  background-color: #012641;
 }
 
 /* Link styling */
@@ -42,22 +42,19 @@ body {
   color: #0F3041;
 }
 
-/* Active link styling */
+
 .sidebar a.active {
   background-color: #ffffff;
 }
 
-/* Icon styling */
 .sidebar a i {
   margin-right: 10px;
 }
 
-/* Checkbox to toggle sidebar */
 #check:checked ~ .sidebar {
-  left: 0; /* Show sidebar when checked */
+  left: 0; 
 }
 
-/* Styling for the toggle button */
 .menu-toggle {
   position: absolute;
   top: 20px;
@@ -68,7 +65,6 @@ body {
   align-items: center;
 }
 
-/* Adjusting the checkbox alignment */
 input[type="checkbox"] {
   position: absolute;
   top: 20px;
@@ -80,24 +76,20 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-/* Toggle button icons */
 #btn, #cancel {
   font-size: 24px;
   color: #6e2227;
   margin-left: 10px;
 }
 
-/* Initially show the bar icon */
 #btn {
   display: inline;
 }
 
-/* Initially hide the cancel icon */
 #cancel {
   display: none;
 }
 
-/* Toggle icons when sidebar is open */
 #check:checked ~ .menu-toggle #btn {
   display: none;
 }
@@ -106,30 +98,29 @@ input[type="checkbox"] {
   display: inline;
 }
 
-/* Frame styling */
+
 .frame {
   padding: 30px;
   width: 100%;
   transition: margin-left 0.3s ease;
-  /* text-align: center; */
+  
 }
 
-/* Adjust frame width when sidebar is open */
+
 #check:checked ~ .frame {
   margin-left: 250px; 
   padding: 20px;
   width: calc(100% - 250px);
 }
 
-/* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .sidebar {
-    width: 200px; /* Reduce the width for smaller screens */
-    left: -200px; /* Adjust the hiding position */
+    width: 200px; 
+    left: -200px; 
   }
 
   #check:checked ~ .sidebar {
-    left: 0; /* Show sidebar when checked */
+    left: 0; 
   }
 
   #check:checked ~ .frame {
@@ -141,12 +132,12 @@ input[type="checkbox"] {
 
 @media (max-width: 480px) {
   .sidebar {
-    width: 150px; /* Further reduce the width for very small screens */
-    left: -150px; /* Adjust the hiding position */
+    width: 150px;
+    left: -150px; 
   }
 
   #check:checked ~ .sidebar {
-    left: 0; /* Show sidebar when checked */
+    left: 0; 
   }
 
   #check:checked ~ .frame {
