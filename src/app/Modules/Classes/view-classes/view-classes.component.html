@@ -1,69 +1,81 @@
-<div class="container-fluid table mt-5">
+<div class="container mt-5">
     <div class="row">
-        <div class="col-3 ms-4">
+        <div class="col-lg-8">
             <h2>List of Classes</h2>
+            <div class="container-fluid table mt-1">
+                <section class="table_body">
+                    <table class="table table-hover">
+                        <thead class="head">
+                            <tr style="font-size: 13px;">
+                                <th>Class Name</th>
+                                <th>Schedule</th>
+                                <th>Teacher</th>
+                            </tr>
+                        </thead>
+                        <tbody style="font-size: 13px;">
+                            <tr class="tab">
+                                <td>Mathematics</td>
+                                <td>Mon-Fri 7:30-9:30</td>
+                                <td>Mrs. Carl Ann Yag-at M. Tamayo</td>
+                            </tr>
+                            <tr class="tab">
+                                <td>Filipino</td>
+                                <td>Mon-Fri 9:30-11:30</td>
+                                <td>Mrs. Cristy W. Quisia-an</td>
+                            </tr>
+                            <tr class="tab">
+                                <td>English</td>
+                                <td>Mon-Fri 1:00-2:30</td>
+                                <td>Mrs. Virginia B. Ocumen</td>
+                            </tr>
+                            <tr class="tab">
+                                <td>Science</td>
+                                <td>Mon-Fri 2:30-4:30</td>
+                                <td>Mrs. Mylene A. Patayan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            
+            </div>
         </div>
-        <div class="col-6">
-            <div class="d-flex justify-content-end mb-1 form-group">
-                <!-- Button moved to the right side -->
-                <a [routerLink]="['/main/Class/mainClass/newClass']" class="btn" style="background-color: rgba(98, 163, 157, 0.267);">
-                    <i class="fa fa-plus" style="background-color: rgba(98, 163, 157, 0.267);"></i> New Class
-                </a>
+        <div class="col-md-4">
+            <div class="card p-4">
+              <h2>Create Class</h2>
+              <form novalidate>
+                <div class="form-group">
+                  <label>Select Subject</label>
+                  <select class="form-select form-select-md" id="assignclass">
+                    <option>English</option>
+                    <option>Science</option>
+                    <option>Filipino</option>
+                    <option>Mathematics</option>
+                </select>
+                </div>
+                <div class="form-group">
+                  <label>Assign Teacher</label>
+                  <select class="form-select form-select-md" id="assignclass">
+                    <option>English</option>
+                    <option>Science</option>
+                    <option>Filipino</option>
+                    <option>Mathematics</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="ftname">Schedule</label>
+                    <input type="text" name="ftname" formControlName="fname" id="ftname" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="religion">Time</label>
+                    <input type="text" name="religion" formControlName="address" id="religion" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="phonenum">Room</label>
+                    <input type="text" id="phonenum" formControlName="room" name="room" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary"> Update </button>
+              </form>
             </div>
         </div>
     </div>
-    <section class="table_body">
-        <table class="table table-hover">
-            <thead class="head">
-                <tr style="font-size: 13px;">
-                    <th>Class Name</th>
-                    <th>Schedule</th>
-                    <th>Teacher</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody style="font-size: 13px;">
-                <tr class="tab">
-                    <td>MAth</td>
-                    <td>Mon 7:00-9:00</td>
-                    <td>Ma'am Reyes</td>
-                    <td>
-                        <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
-                            <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="tab">
-                    <td>Filipino</td>
-                    <td>Mon 7:00-9:00</td>
-                    <td>Ma'am Reyes</td>
-                    <td>
-                        <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
-                            <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="tab">
-                    <td>English</td>
-                    <td>Mon 7:00-9:00</td>
-                    <td>Ma'am Reyes</td>
-                    <td>
-                        <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
-                            <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="tab">
-                    <td>Science</td>
-                    <td>Mon 7:00-9:00</td>
-                    <td>Ma'am Reyes</td>
-                    <td>
-                        <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
-                            <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
 </div>
