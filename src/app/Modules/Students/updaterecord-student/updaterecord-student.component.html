@@ -1,5 +1,5 @@
 <div class="container mt-3">
-    <h2>Update Student Record</h2>
+    <h2>Update Student Information</h2>
     <div class="row justify-content-center">
         <div class="col-12 col-lg-10 m-2">
             <div class="card" style="box-shadow: 0 .5rem .9rem #0005;">
@@ -66,16 +66,37 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="phonenum">Email</label>
+                                    <input type="text" id="email" formControlName="email" name="email" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="phonenum">Password</label>
+                                    <input type="text" id="pass" formControlName="pass" name="pass" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="phonenum">Confirm Password</label>
+                                    <input type="text" id="cpass" formControlName="cpass" name="cpass" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 mb-3">
                                 <label class="form-label" for="assignclass">Assign Class</label>
                                 <select class="form-select form-select-md" id="assignclass">
-                                    <option>English</option>
-                                    <option>Science</option>
-                                    <option>Filipino</option>
-                                    <option>Mathematics</option>
+                                    <option>Communication Skills (English)</option>
+                                    <option>Communication Skills (Filipino)</option>
+                                    <option>Scientific Literacy and Critical Thinking</option>
+                                    <option>Mathematical and Problem Solving Skills</option>
+                                    <option>Life and Career Skills</option>
+                                    <option>Understanding the Self and Society</option>
+                                    <option>Digital Citizenship</option>
                                 </select>
                             </div>
                             <div class="col-12 ">
-                                <button type="submit" class="btn text-white">Update</button> 
+                                <button type="submit" class="btn text-white">Submit</button> 
                             </div>
                         </div>
                     </form>

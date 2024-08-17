@@ -1,86 +1,101 @@
-<div class="container mt-3">
-    <h2>Enroll Students</h2>
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 m-2">
-            <div class="card" style="box-shadow: 0 .5rem .9rem #0005;">
-                <div class="card-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="ltname">Lastname</label>
-                                    <input type="text" name="ltname" formControlName="lname" id="ltname" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="ftname">Firstname</label>
-                                    <input type="text" name="ftname" formControlName="fname" id="ftname" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="mdname">Middlename</label>
-                                    <input type="text" name="mdname" formControlName="mname" id="mdname" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="exname">Extension Name e.g, Jr, III</label>
-                                    <input type="text" name="exname" formControlName="exname" id="exname" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="religion">Religion</label>
-                                    <input type="text" name="religion" formControlName="religion" id="religion" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="birthdayt">Birthday</label>
-                                    <input type="date" formControlName="birthdate" id="birthdayt" name="birthdayt" class="form-control" placeholder="Birthday*" value="" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="birthplace">Place of Birth</label>
-                                    <input type="text" formControlName="birthplace" id="birthplace" name="birthplace" class="form-control" placeholder="" value="" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="phonenum">Phone No.</label>
-                                    <input type="text" id="phonenum" formControlName="phone" name="phonenum" class="form-control" />
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <h6 class="mb-3 pb-1">Gender: </h6>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="option1" checked />
-                                    <label class="form-check-label" for="femaleGender">Female</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="option2" />
-                                    <label class="form-check-label" for="maleGender">Male</label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-6 col-lg-4 mb-3">
-                                <label class="form-label" for="assignclass">Assign Class</label>
-                                <select class="form-select form-select-md" id="assignclass">
-                                    <option>English</option>
-                                    <option>Science</option>
-                                    <option>Filipino</option>
-                                    <option>Mathematics</option>
-                                </select>
-                            </div>
-                            <div class="col-12 ">
-                                <button type="submit" class="btn text-white">Submit</button> 
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<div class="container-fluid table mt-5">
+    <div class="row">
+        <div class="col-3 ms-4">
+            <h2>List of Students</h2>
+        </div>
+        <div class="col-6">
+            <div class="d-flex justify-content-end mb-1 form-group">
+                <!-- Button moved to the right side -->
+                <a [routerLink]="['/main/Home/mainHome/assingclass']" class="btn" style="background-color: #012641; color: #fff;">
+                    <i class="fa fa-plus" style="background-color: #012641; color: #ffff;"></i> Enroll Students
+                </a>
             </div>
         </div>
     </div>
+    <section class="table_body">
+        <table class="table table-hover">
+            <thead class="head">
+                <tr style="font-size: 13px;">
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Birthday</th>
+                    <th>Place of Birth</th>
+                    <th>Assign Class</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="font-size: 13px;">
+                <tr class="tab">
+                    <td>Cruz, John Dave C.</td>
+                    <td>09128564423</td>
+                    <td>January 01, 2001</td>
+                    <td>Sison, Pangasinan</td>
+                    <td></td>
+                    <td>
+                        <!-- <a [routerLink]="['/main/Student/mainStudent/updateRecordS']">
+                          <i class="fa fa-check" aria-hidden="true"></i>
+                        </a> -->
+                        <button type="button" class="btn btn" style="background-color: #60B3D1; color: #fff;" data-bs-toggle="modal" data-bs-target="#myModal">
+                            Approve
+                        </button>
+                    </td>
+                </tr>
+                <tr class="tab">
+                    <td>Hernandez, Mae Ann B.</td>
+                    <td>09642138633</td>
+                    <td>November 13, 1999</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>Mathematical and Problem Solving Skills</td>
+                    <td>
+                        <i class="fa fa-check" style="color: #60d19a;" aria-hidden="true"></i>
+                      </td>
+                </tr>
+                <tr class="tab">
+                    <td>Mendoza, Jayden Carl B.</td>
+                    <td>09117653429</td>
+                    <td>May 20, 1999</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>Life and Career Skills</td>
+                    <td>
+                        <i class="fa fa-check" style="color: #60d19a;" aria-hidden="true"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </div>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Assign Class</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="col-lg-12">
+                <select class="form-select form-select-md" id="assignclass">
+                    <option>Communication Skills (English)</option>
+                    <option>Communication Skills (Filipino)</option>
+                    <option>Scientific Literacy and Critical Thinking</option>
+                    <option>Mathematical and Problem Solving Skills</option>
+                    <option>Life and Career Skills</option>
+                    <option>Understanding the Self and Society</option>
+                    <option>Digital Citizenship</option>
+                </select>
+            </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn" style="background-color: #012641; color: #fff;" data-bs-dismiss="modal">Ok</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
