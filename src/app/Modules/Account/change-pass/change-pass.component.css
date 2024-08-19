@@ -1,0 +1,42 @@
+
+.profile-pic {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px #9b9a9a solid;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .btn {
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .btn-primary {
+    background-color: #60B3D1;
+    border-color: #60B3D1;
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: #012641;
+    border-color: #012641;
+  }
+
+.card{
+  background-color: #dddbdb;
+  border-color: #c1c1c1;
+}
+
