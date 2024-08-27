@@ -22,7 +22,7 @@ body{
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
-.center h1{
+.center h3{
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid silver;
@@ -117,4 +117,6 @@ button[type="submit"]:hover{
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #0F3041;
+  text-align: center; /* Center-align the content */
+  margin-left: 150px;
 }

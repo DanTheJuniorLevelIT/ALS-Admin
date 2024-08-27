@@ -152,4 +152,6 @@ input[type="checkbox"] {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #0F3041;
+  margin-left: 75px;
+  margin-top: 15px;
 }
