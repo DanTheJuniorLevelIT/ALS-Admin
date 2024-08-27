@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .card {
+    flex: 1 1 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    background-color: #f5f5f5;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  .tree {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .tree li {
+    margin-bottom: 5px;
+  }
+  
+  .tree li i {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  .tree li ul {
+    list-style-type: none;
+    padding-left: 20px;
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      flex-basis: 100%;
+    }
+  }

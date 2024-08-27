@@ -1,4 +1,4 @@
-table, th, td {
+/* table, th, td {
     padding: 1rem;
     border-collapse: collapse;
     font-size: 1rem;
@@ -92,6 +92,26 @@ tbody tr:hover {
    
     .new-teacher-btn {
         margin-top: 10px; /* Adjust as needed */
-    }
+    
 
+
+.table-responsive {
+    overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+}
+
+.table {
+    width: 100%; /* Ensures the table takes full width */
+    margin-bottom: 1rem; /* Space below the table */
+}
+
+.table th, .table td {
+    white-space: nowrap; /* Prevents text wrapping */
+    
+}
+
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 12px; /* Adjust font size for smaller screens */
+        
+    }
 }

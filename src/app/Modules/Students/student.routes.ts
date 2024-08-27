@@ -20,7 +20,7 @@ export const studentRoute: Routes = [
                   {path: 'elem', component: ElemComponent},
                   {path: 'junior', component: JuniorComponent},
                   {path: 'alsblp', component: AlsblpComponent},
-                  {path: '', redirectTo: 'viewStudent', pathMatch: 'full'}
+                  {path: '', redirectTo: 'alsblp', pathMatch: 'full'}
                 ]
             }
         ]

@@ -18,7 +18,7 @@ export const homeRoute: Routes = [
                   {path: 'alsElem', component: AlsElemComponent},
                   {path: 'alsJunior', component: AlsJuniorComponent},
                   {path: 'blp', component: BlpComponent},
-                  {path: '', redirectTo: 'enroll', pathMatch: 'full'}
+                  {path: '', redirectTo: 'blp', pathMatch: 'full'}
                 ]
             }
         ]
