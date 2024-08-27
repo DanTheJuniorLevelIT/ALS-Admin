@@ -1,0 +1,107 @@
+<div class="container-fluid table mt-5">
+    <section class="table_body">
+        <table class="table table-hover">
+            <thead class="head">
+                <tr style="font-size: 13px;">
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Age</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="font-size: 13px;">
+                <tr class="tab">
+                    <td>Cruz, John Dave C.</td>
+                    <td>09128564423</td>
+                    <td>johndavegmail.com</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>12</td>
+                    <td>
+                        <!-- <a [routerLink]="['/main/Student/mainStudent/updateRecordS']">
+                          <i class="fa fa-check" aria-hidden="true"></i>
+                        </a> -->
+                        <i class="fa fa-check" style="color: #60d19a;" aria-hidden="true"></i>
+                    </td>
+                </tr>
+                <tr class="tab">
+                    <td>Hernandez, Mae Ann B.</td>
+                    <td>09642138633</td>
+                    <td>maeanngmail.com</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>15</td>
+                    <td>
+                        <i class="fa fa-check" style="color: #60d19a;" aria-hidden="true"></i>
+                      </td>
+                </tr>
+                <tr class="tab">
+                    <td>Castillo, Kim B.</td>
+                    <td>09163424119</td>
+                    <td>kimgmail.com</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>18</td>
+                    <td>
+                        <!-- <a [routerLink]="['/main/Student/mainStudent/updateRecordS']">
+                          <i class="fa fa-check" aria-hidden="true"></i>
+                        </a> -->
+                        <button type="button" class="btn btn" style="background-color: #60B3D1; color: #fff;" data-bs-toggle="modal" data-bs-target="#myModal">
+                            Approve
+                        </button>
+                    </td>
+                </tr>
+                <tr class="tab">
+                    <td>Mendoza, Jayden Carl B.</td>
+                    <td>09117653429</td>
+                    <td>jaydengmail.com</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>20</td>
+                    <td>
+                        <i class="fa fa-check" style="color: #60d19a;" aria-hidden="true"></i>
+                    </td>
+                </tr>
+                <tr class="tab">
+                    <td>Lopez, James B.</td>
+                    <td>09435181292</td>
+                    <td>jamesgmail.com</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>15</td>
+                    <td>
+                        <i class="fa fa-check" style="color: #60d19a;" aria-hidden="true"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Assign Class</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="col-lg-12">
+                <select class="form-select form-select-md" id="assignclass">
+                    <option>Basic Literacy Program </option>
+                    <option>ALS Elementary</option>
+                    <option>ALS Junior High School</option>
+                </select>
+            </div>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn" style="background-color: #012641; color: #fff;" data-bs-dismiss="modal">Ok</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  

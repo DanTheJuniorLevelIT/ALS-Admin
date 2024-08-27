@@ -30,6 +30,10 @@ table, th, td {
 .table_body:hover::-webkit-scrollbar-thumb {
     visibility: visible;
 }
+.btn:hover {
+    background-color: #ffffff;
+    border-color: #fcfdfd;
+  }
 
 table {
     width: 100%;
