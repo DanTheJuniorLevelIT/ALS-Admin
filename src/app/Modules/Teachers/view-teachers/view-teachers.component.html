@@ -1,32 +1,128 @@
-<div class="container-fluid table mt-5">
-    <div class="row">
-        <div class="col-3 ms-4">
-            <h2>List of Teachers</h2>
+<div class="container">
+    <div class="d-flex">
+        <div>
+            <h1 class="m-0 p-0 fs-2 fw-bold">List of Teachers</h1>
         </div>
-        <div class="col-6">
-            <div class="d-flex justify-content-end mb-1 form-group">
-                <!-- Button moved to the right side -->
-                <a [routerLink]="['/main/Teacher/mainTeacher/newTeacher']" class="btn" style="background-color: #012641; color: #fff;">
-                    <i class="fa fa-plus" style="background-color: #012641; color: #ffff;"></i> New Teacher
-                </a>
-            </div>
+        
+        <div class="ms-auto">
+            <button class="btn" [routerLink]="['/main/Teacher/mainTeacher/newTeacher']"> New Teacher</button>
+       
         </div>
     </div>
-    <section class="table_body">
-        <table class="table table-hover">
-            <thead class="head">
-                <tr style="font-size: 13px;">
+
+    <hr>
+
+    <div class="table-responsive">
+        <table class="table table-border table-striped text-center">
+            <thead>
+                <tr class="align-middle">
                     <th>Name</th>
                     <th>Contact</th>
                     <th>Gender</th>
                     <th>Birthday</th>
-                    <th>Place of Birth</th>
+                    <th>Address</th>
                     <th>Email</th>
                     <th></th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody style="font-size: 13px;">
+            <tbody>
+                <tr>
+                    <td>Ocumen, Virginia B.</td>
+                    <td>09853144219</td>
+                    <td>Female</td>
+                    <td>December 21, 1989</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>virginiagmail.com</td>
+                    <td>
+                        <a [routerLink]="['/main/Teacher/mainTeacher/teachersubject']">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quisia-an, Cristy W.</td>
+                    <td>09265411380</td>
+                    <td>Female</td>
+                    <td>June 30, 1988</td>
+                    <td>Sison, Pangasinan</td>
+                    <td>Crisgmail.com</td>
+                    <td>
+                        <a [routerLink]="['/main/Teacher/mainTeacher/teachersubject']">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tamayo, Carl Ann Yag-at M.</td>
+                    <td>09017534218</td>
+                    <td>Female</td>
+                    <td>October 09, 1979</td>
+                    <td>Amagbagan, Sison Pangasinan</td>
+                    <td>anngmail.com</td>
+                    <td>
+                        <a [routerLink]="['/main/Teacher/mainTeacher/teachersubject']">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Patayan, Mylene A.</td>
+                    <td>09653119231</td>
+                    <td>Female</td>
+                    <td>Febuary 14, 1980</td>
+                    <td>Asan Sur, Sison Pangasinan</td>
+                    <td>mylenegmail.com</td>
+                    <td>
+                        <a [routerLink]="['/main/Teacher/mainTeacher/teachersubject']">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- <div class="container-fluid table mt-5" >
+    <h1>List of Teachers</h1>
+    
+    <section class="table_body">
+        <table class="table table-hover">
+            <thead class="head">
+                <tr style="font-size: 15px;">
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Gender</th>
+                    <th>Birthday</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="font-size: 15px;">
                 <tr class="tab">
                     <td>Ocumen, Virginia B.</td>
                     <td>09853144219</td>
@@ -102,4 +198,4 @@
             </tbody>
         </table>
     </section>
-</div>
+</div> -->
