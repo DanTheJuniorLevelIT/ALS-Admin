@@ -9,7 +9,7 @@
             <i class="fa fa-plus" style="background-color: #012641; color: #ffff;"></i> Enroll Students
         </a>
     </mat-toolbar>
-    <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <nav mat-tab-nav-bar [tabPanel]="tabPanel" >
         @for(tabItem of tabs; track tabItem){
         <a mat-tab-link 
           [routerLink]="tabItem.route" 
