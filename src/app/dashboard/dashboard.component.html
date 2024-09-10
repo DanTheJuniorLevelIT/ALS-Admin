@@ -1,36 +1,36 @@
 <div>
-    <input type="checkbox" id="check" aria-hidden="true">
-    <label for="check" class="menu-toggle" aria-label="Toggle sidebar">
-        <i class="fas fa-bars" id="btn" aria-hidden="true"></i>
-        <i class="fas fa-times" id="cancel" aria-hidden="true"></i>
-    </label>
-    
-    <nav class="sidebar" role="navigation" aria-label="Main Menu">
-        <img src="./assets/als.jpg" alt="Profile Picture" class="profile-picture">
-        <header>Welcome <br> Admin</header>
-        <a [routerLink]="['/main/Home/mainHome/enroll']">
-            <i class="fa fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a [routerLink]="['/main/Class/mainClass']">
-            <i class="fas fa-book-reader"></i>
-            <span>Class</span>
-        </a>
-        <a [routerLink]="['/main/Student/mainStudent']">
-            <i class="fa fa-user"></i>
-            <span>Students</span>
-        </a>
-        <a [routerLink]="['/main/Teacher/mainTeacher']">
-            <i class="fa fa-user-secret"></i>
-            <span>Teachers</span>
-        </a>
-        <a [routerLink]="['/main/Account/mainAccount']">
-            <i class="fa fa-user-circle"></i>
-            <span>Account</span>
-        </a>
-    </nav>
-    
-    <div class="frame">
-        <router-outlet></router-outlet>
-    </div>
+  <input type="checkbox" id="check" aria-hidden="true">
+  <label for="check" class="menu-toggle" aria-label="Toggle sidebar">
+      <i class="fas fa-bars" id="btn" aria-hidden="true"></i>
+      <i class="fas fa-times" id="cancel" aria-hidden="true"></i>
+  </label>
+  
+  <nav class="sidebar" role="navigation" aria-label="Main Menu">
+      <img src="./assets/als.jpg" alt="Profile Picture" class="profile-picture">
+      <header>Welcome <br> Admin</header>
+      <a [routerLink]="['/main/Home/mainHome/enroll']">
+          <i class="fa fa-home"></i>
+          <span>Home</span>
+      </a>
+      <a [routerLink]="['/main/Class/mainClass']">
+          <i class="fas fa-book-reader"></i>
+          <span>Class</span>
+      </a>
+      <a [routerLink]="['/main/Student/mainStudent']">
+          <i class="fa fa-user"></i>
+          <span>Students</span>
+      </a>
+      <a [routerLink]="['/main/Teacher/mainTeacher']">
+          <i class="fa fa-user-secret"></i>
+          <span>Teachers</span>
+      </a>
+      <a [routerLink]="['/main/Account/mainAccount']">
+          <i class="fa fa-user-circle"></i>
+          <span>Account</span>
+      </a>
+  </nav>
+  
+  <div class="frame">
+      <router-outlet></router-outlet>
+  </div>
 </div>
