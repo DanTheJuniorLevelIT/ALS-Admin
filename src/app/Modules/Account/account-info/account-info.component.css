@@ -82,6 +82,25 @@
 .update-btn:hover {
     background-color: #0c7db1;
 } */
+.account-info .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.account-info label {
+  
+  margin-right: 10px;
+  width: 30%; /* Adjust as needed */
+}
+
+.account-info span {
+  width: 70%; /* Adjust to fit with label */
+  text-align: left;
+  font-weight: bold;
+}
+
 
 .account-card {
   max-width: 500px;
@@ -139,7 +158,7 @@
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
+  
 }
 
 .form-group p {

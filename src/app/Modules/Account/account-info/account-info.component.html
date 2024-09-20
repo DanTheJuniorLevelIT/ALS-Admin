@@ -1,40 +1,65 @@
 <div class="account-card">
-  <div class="profile-picture-container">
-      <img src="./assets/log.png" alt="Profile Picture" class="profile-picture">
-      <input type="file" id="upload-photo" class="upload-photo">
-      <label for="upload-photo" class="upload-photo-label">Upload Photo</label>
-  </div>
-  <div class="account-info">
-      <h6>Account Information</h6>
-      <div class="form-group">
-          <label for="firstName">First Name: John</label>
-      </div>
-      <div class="form-group">
-          <label for="middleName">Middle Name: M</label>
-          <!-- <p id="middleName">{{ middleName }}</p> -->
-      </div>
-      <div class="form-group">
-          <label for="lastName">Last Name: Doe</label>
-          <!-- <p id="lastName">{{ lastName }}</p> -->
-      </div>
-      <div class="form-group">
-          <label for="role">Role: Admin</label>
-          <!-- <p id="role">{{ role }}</p> -->
-      </div>
-      <div class="form-group">
-          <label for="email">Email: JohnDoe&#64;gmail.com</label>
-          <!-- <p id="email">{{ email }}</p> -->
-      </div>
-      <div class="form-group">
-          <label for="password">Update Password: *****************</label>
-          <input type="password" id="password" name="password" required placeholder="Current Password">
-      </div>
-      <div class="form-group">
-        <input type="password" id="password" name="password" required placeholder="New Password">
+    <div class="profile-picture-container">
+        <img src="./assets/log.png" alt="Profile Picture" class="profile-picture">
+        <input type="file" id="upload-photo" class="upload-photo">
+        <label for="upload-photo" class="upload-photo-label">Upload Photo</label>
     </div>
-    <div class="form-group">
-        <input type="password" id="password" name="password" required placeholder="Retype Password">
+    <!-- Assuming `admin` is an array, hence `*ngFor`. If it's a single object, remove `*ngFor`. -->
+    <div class="account-info" *ngFor="let admins of admin">
+        <h6>Account Information</h6>
+        
+        <!-- First Name -->
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <span>{{ admins.firstname }}</span>
+        </div>
+
+        <!-- Middle Name -->
+        <div class="form-group">
+            <label for="middleName">Middle Name:</label>
+            <span>{{ admins.middlename }}</span>
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <span>{{ admins.lastname }}</span>
+        </div>
+
+        <!-- Role -->
+        <div class="form-group">
+            <label for="role">Role:</label>
+            <span>{{ admins.role }}</span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <span>{{ admins.email }}</span>
+        </div>
+
+        <!-- Password Section -->
+        <div class="form-group">
+            <label for="password">Update Password:</label>
+            <span>*****************</span>
+        </div>
+        
+        <!-- Current Password -->
+        <div class="form-group">
+            <input type="password" id="Currentpassword" name="password" required placeholder="Current Password">
+        </div>
+
+        <!-- New Password -->
+        <div class="form-group">
+            <input type="password" id="Newpassword" name="password" required placeholder="New Password">
+        </div>
+
+        <!-- Retype Password -->
+        <div class="form-group">
+            <input type="password" id="Repassword" name="password" required placeholder="Retype Password">
+        </div>
+
+        <!-- Update Button -->
+        <button type="submit" class="update-btn">Update Password</button>
     </div>
-      <button type="submit" class="update-btn">Update Password</button>
-  </div>
 </div>
