@@ -18,18 +18,18 @@ userData: any;
 
   ngOnInit(): void {
     
-    this.storeduser = localStorage.getItem('authToken');
-    console.log(this.storeduser);
+  //   this.storeduser = localStorage.getItem('authToken');
+  //   console.log(this.storeduser);
     
-    this.apiService.getAccount().subscribe((response) => {
-      console.log(response);  
-      this.admin = response; 
-      console.log('Admin:', this.admin);  
-    },
-    (error) => {
-      console.error('Error fetching subjects:', error);
-    }
-  );
+  //   this.apiService.getAccount().subscribe((response) => {
+  //     console.log(response);  
+  //     this.admin = response; 
+  //     console.log('Admin:', this.admin);  
+  //   },
+  //   (error) => {
+  //     console.error('Error fetching subjects:', error);
+  //   }
+  // );
 
   
 //   this.apiService.getAccount(this.storeduser).subscribe((response:any) => {

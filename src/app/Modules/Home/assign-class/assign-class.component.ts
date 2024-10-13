@@ -22,10 +22,10 @@ export class AssignClassComponent implements OnInit{
     firstname: new FormControl(null),
     middlename: new FormControl(null),
     extension_name: new FormControl(null),
-    // religion: new FormControl(null),
+    religion: new FormControl(null),
     birthdate: new FormControl(null),
     placeofbirth: new FormControl(null),
-    // phone: new FormControl(null),
+    contact_numbers: new FormControl(null),
     gender: new FormControl(null),
     civil_status: new FormControl(null),
     education: new FormControl(null),
@@ -41,21 +41,42 @@ export class AssignClassComponent implements OnInit{
 
   constructor(private apiService: ApiServiceService, private route: Router){}
     
-  enrol(){
-      console.log(this.enrollForm.value);
-    }
+  // enrol(){
+  //     console.log(this.enrollForm.value);
+  //   }
 
+    enrol() {
+      if (this.enrollForm.valid) {
+        this.apiService.enrollUser(this.enrollForm.value).subscribe(
+          (response) => {
+            console.log('User enrolled:', response);  // Inspect response here
+            alert('User enrolled successfully!');
+            this.enrollForm.reset();
+            this.route.navigate(['/main/Home/mainHome/enroll']);
+          },
+          (error) => {
+            console.error('Error enrolling user:', error); // Check the exact error
+          }
+        );
+      } 
+    }
     // enrol() {
     //   if (this.enrollForm.valid) {
     //     this.apiService.enrollUser(this.enrollForm.value).subscribe(
     //       (response) => {
-    //         console.log('User enrolled:', response);  // Inspect response here
+    //         console.log('User enrolled:', response);
+    //         // Add success message logic here
+    //         alert('User enrolled successfully!'); // Simple alert
+    //         this.enrollForm.reset(); // Reset the form if needed
     //       },
     //       (error) => {
-    //         console.error('Error enrolling user:', error); // Check the exact error
+    //         console.error('Error enrolling user:', error);
+    //         alert('Enrollment failed. Please try again.'); // Error message
     //       }
     //     );
     //   } 
     // }
+    
+    
 }
 

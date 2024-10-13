@@ -33,23 +33,25 @@ export class NewTeachersComponent implements OnInit{
   })
 
   constructor(private apiService: ApiServiceService, private route: Router){}
+
+  // new(){
+  //       console.log(this.newTeacherForm.value);
+  //     }
+
   new() {
     if (this.newTeacherForm.valid) {
       this.apiService.newTeacher(this.newTeacherForm.value).subscribe(
-        (response: any) => {
-          console.log('User enrolled:', response); // Inspect response here
+        (response) => {
+          console.log('User enrolled:', response);  // Inspect response here
+          alert('User enrolled successfully!');
+          this.newTeacherForm.reset();
+          this.route.navigate(['/main/Teacher/mainTeacher/viewTeacher']);
         },
         (error) => {
-          console.error('Error enrolling user:', error); // Log the entire error
-          if (error.error) {
-            console.error('Error details:', error.error); // Detailed error handling
-          }
+          console.error('Error enrolling user:', error); // Check the exact error
         }
       );
-    } else {
-      console.error('Form is not valid');
-    }
+    } 
   }
-  
 
 }

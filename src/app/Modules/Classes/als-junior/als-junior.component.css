@@ -105,3 +105,31 @@ h4, span {
 .modal-dialog-scrollable::-webkit-scrollbar-track {
     background-color: #f0f0f0;
 }
+.search {
+    display: flex;
+    align-items: center; /* Align label and input vertically */
+   
+    margin-top: 5px;
+  }
+  .search button {
+    margin-left: 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #012641;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .search input[type="search"] {
+    width: 200px;
+    font-size: 0.8vw;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+.search label {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-right: 10px;
+  display: inline-block;
+}

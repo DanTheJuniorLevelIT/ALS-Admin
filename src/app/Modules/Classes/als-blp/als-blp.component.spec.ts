@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlpComponent } from './blp.component';
+import { AlsBlpComponent } from './als-blp.component';
 
-describe('BlpComponent', () => {
-  let component: BlpComponent;
-  let fixture: ComponentFixture<BlpComponent>;
+describe('AlsBlpComponent', () => {
+  let component: AlsBlpComponent;
+  let fixture: ComponentFixture<AlsBlpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlpComponent]
+      imports: [AlsBlpComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BlpComponent);
+    fixture = TestBed.createComponent(AlsBlpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

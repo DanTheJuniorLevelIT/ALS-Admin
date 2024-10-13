@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="search form-inline">
+        <label for="search-input">Barangay:</label>
+        <input type="search" class="form-control search-input" [(ngModel)]="keyword" placeholder="Search Bar"  style="font-size:1vw;">
+        <button class="btn" [routerLink]="['/main/Class/mainClass/newClass']" style="background-color: #012641; color: #fff;"> <i class="fa fa-plus"></i>New Class </button>
+    </div>
+    <hr>
+</div>
+<!-- Table Section -->
+<div class="table-responsive">
+    <table class="table table-border table-striped text-center">
+        <thead>
+            <tr class="align-middle">
+                <th>Subject</th>
+                <th>Teacher</th>
+                <th>Schedule</th>
+                <th>Location</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tab" *ngFor="let class of classJunior | search: keyword">
+                <td>{{ class.subject_name}} </td>
+                <td>{{ class.firstname}} {{ class.middlename}} {{class.lastname}}</td>
+                <td>{{ class.Schedule }}</td>
+                <td>{{ class.location }}</td>
+                <td>
+                    <!-- <a class="" (click)="storeStudentId(student.studentid)" [routerLink]="['/main/Student/mainStudent/updateRecordS']">
+                        <i class="fa fa-edit" aria-hidden="true"></i> Edit
+                      </a> -->
+                </td>
+            </tr>
+            <!-- <tr>
+                <td>Math</td>
+                <td>Raygienald</td>
+                <td>Mon/wed</td>
+                <td>10:00-11:00</td>
+                <td>Sagunto</td>
+            </tr> -->
+        </tbody>
+    </table>
+</div>

@@ -1,96 +1,119 @@
-table, th, td {
-    padding: 1rem;
-    border-collapse: collapse;
-    font-size: 1rem;
-    font-weight: 500;
+/* General button styling for consistency */
+.btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center text inside buttons */
 }
 
-.table_header {
-    width: 100%;
-    height: 13%;
-    background: white;
-    padding: .8rem 1rem;
-}
-
-.table_body {
-    width: 95%;
-    max-height: 89%;
-    background-color: #f8fdfe;
-    margin: .8rem auto;
-    border-radius: .1rem;
-    overflow: auto;
-}
-
-.table_body::-webkit-scrollbar-thumb {
-    border-radius: .5rem;
-    background-color: rgba(98, 163, 157, 0.267);
-    visibility: hidden;
-}
-
-.table_body:hover::-webkit-scrollbar-thumb {
-    visibility: visible;
-}
+/* Hover effect for buttons */
 .btn:hover {
-    background-color: #ffffff;
-    border-color: #fcfdfd;
-  }
-
-table {
-    width: 100%;
-    table-layout: auto; 
+    background-color: #02436a; /* Darker shade for hover */
+    color: #fff;
+}
+span {
+    font-size: 1.8em; /* Adjust the font size of the title */
+    font-weight: bold;
+    color: #012641;
 }
 
-thead th {
-    position: sticky;
-    top: 0;
-    left: 0;
+/* Styling for buttons section */
+.buttons a {
+    display: block;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .buttons a {
+        margin: 0 10px; /* Adjusted margin for larger screens */
+    }
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ms-auto {
+    margin-left: auto;
+}
+
+
+/* Table styling */
+.table {
+    margin-bottom: 0; /* Eliminate extra space */
+}
+
+.table thead th {
     background-color: #012641;
-    color: #ffffff;
-    border: 1px #012641 solid;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 15px;
 }
 
-tbody td {
-    background-color: #f8fdfe;
+.table tbody td {
+    padding: 10px;
 }
 
-tbody tr:nth-child(even) {
-    background-color: aliceblue;
+.table-border {
+    border: 1px solid #ddd;
 }
 
-tbody tr:hover {
-    background-color: beige;
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
 }
-@media (max-width: 768px) {
-    .table_body {
-        overflow-x: auto; 
-    }
 
-    table, th, td {
-        font-size: 0.8rem; 
-    }
+/* Modal hidden by default */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    align-items: center;
+    justify-content: center;
+}
 
-    .tab {
-        display: block; 
-    }
+/* Modal content styling */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-    thead {
-        display: none;
-    }
+/* Modal is shown when this class is added */
+.modal.show {
+    display: flex;
+}
 
-    tbody td {
-        display: block; 
-        position: relative;
-        padding-left: 50%; 
-        text-align: right;
-    }
+/* Close button */
+.close {
+    cursor: pointer;
+    float: right;
+    font-size: 1.5rem;
+    color: #333;
+}
 
-    tbody td::before {
-        content: attr(data-label); 
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 1rem;
-        text-align: left;
-        font-weight: bold;
-    }
+/* Scrollbar customization */
+.table-responsive::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background-color: #60B3D1;
+    border-radius: 5px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
 }

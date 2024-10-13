@@ -1,53 +1,32 @@
-<div class="container-fluid table mt-5">
-    <section class="table_body">
-        <table class="table table-hover">
-            <thead class="head">
-                <tr style="font-size: 15px;">
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Contact</th>
-                    <th>Gender</th>
-                    <th>Address</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody style="font-size: 15px;">
-                <tr class="tab">
-                    <td>Ang, Jane K.</td>
-                    <td>20</td>
-                    <td>09128564423</td>
-                    <td>Female</td>
-                    <td>Sison, Pangasinan</td>
-                    <td>
-                        <a [routerLink]="['/main/Student/mainStudent/viewDetails']">
-                          <i class="fa fa-eye" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a [routerLink]="['/main/Student/mainStudent/updateRecordS']">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="tab">
-                    <td>Frod, Andrew M.</td>
-                    <td>23</td>
-                    <td>09642138633</td>
-                    <td>Male</td>
-                    <td>Sison, Pangasinan</td>
-                    <td>
-                        <a [routerLink]="['/main/Student/mainStudent/viewDetails']">
-                          <i class="fa fa-eye" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a [routerLink]="['/main/Student/mainStudent/updateRecordS']">
-                          <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
-                      </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+
+<!-- Table Section -->
+<div class="table-responsive">
+    <table class="table table-border table-striped text-center">
+        <thead>
+            <tr class="align-middle">
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Gender</th>
+                <th>Birthday</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tab" *ngFor="let student of approveStudentJunior">
+                <td>{{ student.firstname}} {{ student.middlename}}. {{ student.lastname}}</td>
+                <td>{{ student.contact_numbers}}</td>
+                <td>{{ student.gender }}</td>
+                <td>{{ student.birthdate | date}}</td>
+                <td> {{ calculateAge(student.birthdate) }}</td>
+                <td>{{ student.email }}</td>
+                <td>
+                    <a class="" (click)="storeStudentId(student.studentid)" [routerLink]="['/main/Student/mainStudent/updateRecordS']">
+                        <i class="fa fa-edit" aria-hidden="true"></i> Edit
+                      </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

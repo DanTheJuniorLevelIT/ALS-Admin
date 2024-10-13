@@ -18,6 +18,14 @@ export class ViewTeachersComponent implements OnInit{
 
   constructor(private apiService: ApiServiceService, private route: Router) {}
 
+  selectedTeacherId: any;
+
+  storeTeacherId(studentid: number) {
+    this.selectedTeacherId = studentid;
+    console.log('Selected Teacher ID:', this.selectedTeacherId);
+    localStorage.setItem('TeacherID', this.selectedTeacherId)
+  }
+
  
   ngOnInit(): void {
     this.apiService.getData().subscribe((response) => {

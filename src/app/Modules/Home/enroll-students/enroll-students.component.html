@@ -1,30 +1,63 @@
-<!-- <div >
-    <h1 style="text-align: center;">Alternative Learning System</h1>
-</div> -->
-<a [routerLink]="['/main/Home/mainHome/enroll']" class="btn m-3" style="background-color: #012641; color: #fff;">
-    <i class="fa fa-plus" style="background-color: #012641; color: #ffff;"></i> Pending Students
-</a>
-<a [routerLink]="['/main/Home/mainHome/approve']" class="btn m-3" style="background-color: #012641; color: #fff;">
-    <i class="fa fa-plus" style="background-color: #012641; color: #ffff;"></i> Approve Students
-</a>
-<div class="px-5 py-3">
-    <mat-toolbar color="" style="background-color: #012641; color: #fff;">
-        <span style="font-size: 1.5em;">List of Pending Students</span>
-        <a [routerLink]="['/main/Home/mainHome/assingclass']" class="btn m-3" style="background-color: #012641; color: #fff;">
-            <i class="fa fa-plus" style="background-color: #012641; color: #ffff;"></i> Enroll Students
-        </a>
-    </mat-toolbar>
-    <nav mat-tab-nav-bar [tabPanel]="tabPanel" >
-        @for(tabItem of tabs; track tabItem){
-        <a mat-tab-link 
-          [routerLink]="tabItem.route" 
-          routerLinkActive #rla="routerLinkActive"
-          [active]="rla.isActive">
-          <mat-icon class="mr-8">{{tabItem.icon}}</mat-icon>
-          {{tabItem.label}}
-        </a>
-        }
-    </nav>
-    <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
-    <router-outlet></router-outlet>
+<!-- HTML Template -->
+<div class="container">
+    <div class="d-flex">
+        <div>
+            <span style="font-size: 1.8em; font-weight: bold;">List of Pending Students</span>
+        </div>
+        <div class="ms-auto">
+            <button class="btn me-2" [routerLink]="['/main/Student/mainStudent/viewStudent/alsblp']" style="background-color: #012641; color: #fff;"> Approve Students</button>
+            <button class="btn" [routerLink]="['/main/Home/mainHome/assingclass']" style="background-color: #012641; color: #fff;"> <i class="fa fa-plus"></i>Enroll Students</button>
+        </div>
+    </div>
+    <hr>
+    <!-- Table Section -->
+    <div class="table-responsive">
+        <table class="table table-border table-striped text-center">
+            <thead>
+                <tr class="align-middle">
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Gender</th>
+                    <th>Birthday</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Actions</th> <!-- Changed this header to Actions -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pendingS of pendingStudent">
+                    <td>{{ pendingS.firstname }} {{ pendingS.middlename }}. {{ pendingS.lastname }}</td>
+                    <td>{{ pendingS.contact_numbers }}</td>
+                    <td>{{ pendingS.gender }}</td>
+                    <td>{{ pendingS.birthdate | date }}</td>
+                    <td>{{ calculateAge(pendingS.birthdate) }}</td>
+                    <td>{{ pendingS.email }}</td>
+                    <td>
+                        <div class="text-end"> <!-- Aligns the button to the right -->
+                            <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="openModal(pendingS.studentid)">
+                                Approve
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" [ngClass]="{'show': isModalOpen}">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h2>Assign Class</h2>
+            <form [formGroup]="assignClassForm">
+                <select class="form-control" id="gradelvl" formControlName="education">
+                    <option [ngValue]="null" selected disabled>Select Grade Level</option>
+                    <option *ngFor="let s of gradelevel" [ngValue]="s">{{ s }}</option>
+                </select>
+                <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal(selectedStudent)">
+                    Approve
+                </button>
+            </form>
+        </div>
+    </div>
 </div>

@@ -1,40 +1,54 @@
-<div>
-  <input type="checkbox" id="check" aria-hidden="true">
-  <label for="check" class="menu-toggle" aria-label="Toggle sidebar">
-      <i class="fas fa-bars" id="btn" aria-hidden="true"></i>
-      <i class="fas fa-times" id="cancel" aria-hidden="true"></i>
-  </label>
-  
-  <nav class="sidebar" role="navigation" aria-label="Main Menu">
+<mat-sidenav-container class="sidenav-container">
+    <!-- Sidebar -->
+    <mat-sidenav #sidenav mode="side" opened class="sidenav" role="navigation" aria-label="Main Menu">
       <img src="./assets/als.jpg" alt="Profile Picture" class="profile-picture">
-      <header>Welcome <br> Admin</header>
-      <a [routerLink]="['/main/Home/mainHome/enroll']">
-          <i class="fa fa-home"></i>
-          <span>Home</span>
-      </a>
-      <a [routerLink]="['/main/Class/mainClass']">
-          <i class="fas fa-book-reader"></i>
-          <span>Class</span>
-      </a>
-      <a [routerLink]="['/main/Student/mainStudent']">
-          <i class="fa fa-user"></i>
-          <span>Students</span>
-      </a>
-      <a [routerLink]="['/main/Teacher/mainTeacher']">
-          <i class="fa fa-user-secret"></i>
-          <span>Teachers</span>
-      </a>
-      <a [routerLink]="['/main/Account/mainAccount']">
-          <i class="fa fa-user-circle"></i>
-          <span>Account</span>
-      </a>
-      <a [routerLink]="['/login']">
-        <i class="fa fa-lock" aria-hidden="true"></i>
-        <span>Logout</span>
-    </a>
-  </nav>
+      <header class="head"> Admin</header>
   
-  <div class="frame">
-      <router-outlet></router-outlet>
-  </div>
-</div>
+      <mat-nav-list>
+        <mat-list-item [routerLink]="['/main/Home/mainHome/enroll']">
+          <mat-icon class="white-icon">home</mat-icon>
+          <span class="bg-color">Home</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="['/main/Class/mainClass']">
+          <mat-icon class="white-icon">book</mat-icon>
+          <span class="bg-color">Class</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="['/main/Student/mainStudent']">
+          <mat-icon class="white-icon">person</mat-icon>
+          <span class="bg-color">Students</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="['/main/Teacher/mainTeacher']">
+          <mat-icon class="white-icon">person_outline</mat-icon>
+          <span class="bg-color">Teachers</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="['/main/Account/mainAccount']">
+          <mat-icon class="white-icon">account_circle</mat-icon>
+          <span class="bg-color">Account</span>
+        </mat-list-item>
+  
+        <mat-list-item [routerLink]="['/login']">
+          <mat-icon class="white-icon">lock_open</mat-icon>
+          <span class="bg-color">Logout</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Main Content -->
+    <mat-sidenav-content class="fframs">
+      <div class="header">
+        <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidebar" style="display: flex; align-items: center;">
+          <i class="fas fa-bars" style="margin-right: 8px;"></i>
+        </button>
+        <h1 style="flex: 1; text-align: center;">Alternative Learning System</h1>
+      </div>
+  
+      <div class="frame">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

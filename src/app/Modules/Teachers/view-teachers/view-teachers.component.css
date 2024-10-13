@@ -1,30 +1,94 @@
-table{
-    text-align: left;
-    border-radius: 25px;
-    border-radius: 6px;
-}
-container{
+.container {
     align-items: center;
 }
-.table-responsive{
-    overflow-y: auto;
-    max-height: 70dvh;
-    border-radius: 5px;
-    overscroll-behavior: contain;
+
+.card {
+    border-radius: 15px;
+    border: 1px solid #60B3D1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    max-width: 100%; /* Ensure the card doesn't stretch too wide */
 }
 
-table th{
-    background-color: #012641;
-    color: #f1f7e4;
+.card:hover {
+    transform: scale(1.02);
 }
 
-button{
+.card-img-top {
+    height: 150px; /* Reduce the height of the image */
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.card-body {
+    padding: 15px; /* Reduce padding to make the card more compact */
+    background-color: #f1f7e4;
+    border-radius: 15px;
+}
+
+.card-title {
+    color: #012641;
+    font-size: 1.1em; /* Slightly smaller title */
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.9em; /* Reduce font size for text */
+    color: #333;
+    margin-bottom: 8px;
+    text-align: left;
+    margin-left: 15px;
+}
+
+button {
     background-color: #60B3D1;
     border-color: #60B3D1;
     color: #fff;
+    padding: 5px 10px; /* Reduce padding */
+    font-size: 0.8em; /* Reduce font size */
+    border-radius: 4px; /* Slightly smaller border radius */
 }
 
-button:hover{
-    background-color:#012641;
+button:hover {
+    background-color: #012641;
     color: #fff;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    color: #012641;
+}
+
+span {
+    font-size: 1.8em; /* Adjust the font size of the title */
+    font-weight: bold;
+    color: #012641;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ms-auto {
+    margin-left: auto;
+}
+
+/* Buttons inside the card */
+.card .btn {
+    background-color: #60B3D1;
+    color: white;
+    padding: 5px 10px; /* Smaller padding for buttons in the card */
+    font-size: 0.8em; /* Adjust font size */
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.card .btn:hover {
+    background-color: #012641;
+    color: white;
 }

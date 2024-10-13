@@ -1,115 +1,35 @@
-<div class="col-6 ms-5 m-3">
-    <h1><b>Ocumen, Virginia B.</b></h1>
-    <h2><b>Assign Class:</b> Basic Literacy Program</h2>
+<h1>Basic Literacy Program</h1>
+<div class="cards-container">
+  <div class="card" *ngFor="let sub of classesblp">
+      <img src="/assets/{{sub.image}}" alt="Class 1">
+      <div class="card-title">{{sub.subject_name}}</div>
+      <div class="card-body">
+        <p class="subjecttime">{{sub.Schedule}}</p>
+        <p class="subjecttime">{{sub.location}}</p>
+      </div>
+  </div>
 </div>
-<div class="container">
-    
-    <div class="card">
-      <div class="card-header">
-         Communication Skills
-      </div>
-      <div class="card-body">
-        <ul class="tree">
-          <li> Monday</li>
-          <li>8:00 - 10:00</li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="card">
-        <div class="card-header">
-           Scientific And Critical Thinking Skills
-        </div>
-        <div class="card-body">
-          <ul class="tree">
-            <li> Monday</li>
-            <li>1:00 - 3:30</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-           Life and Career Skills
-        </div>
-        <div class="card-body">
-          <ul class="tree">
-            <li> Monday</li>
-            <li>8:00 - 9:30 am</li>
-          </ul>
-        </div>
-      </div>
-      
-      
-     
-  </div>
 
-  <div class="col-3 ms-5 m-3">
-    <h2><b>Assign Class:</b> ALS Elementary</h2>
-  </div>
-<div class="container">
-    
-    <div class="card">
-      <div class="card-header">
-         Communication Skills
-      </div>
+<h1 class="mt-5">ALS Elementary</h1>
+<div class="cards-container">
+  <div class="card" *ngFor="let sub of classesElem">
+      <img src="/assets/{{sub.image}}" alt="Class 1">
+      <div class="card-title">{{sub.subject_name}}</div>
       <div class="card-body">
-        <ul class="tree">
-          <li> Tuesday - Wednesday</li>
-          <li>7:00 - 8:30</li>
-        </ul>
+        <p class="subjecttime">{{sub.Schedule}}</p>
+        <p class="subjecttime">{{sub.location}}</p>
       </div>
-    </div>
-  
-    <div class="card">
-        <div class="card-header">
-           Scientific And Critical Thinking Skills
-        </div>
-        <div class="card-body">
-          <ul class="tree">
-            <li> Tuesday - Wednesday</li>
-            <li>1:00 - 1:30</li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-           Mathematical And Problem-Solving Skills
-        </div>
-        <div class="card-body">
-          <ul class="tree">
-            <li> Tuesday - Wednesday</li>
-            <li>10:00 - 12:30</li>
-          </ul>
-        </div>
-      </div>
-      
   </div>
+</div>
 
-  <div class="col-3 ms-5 m-3">
-    <h2><b>Assign Class:</b> ALS Junior Highschool</h2>
-  </div>
-<div class="container">
-    
-    <div class="card">
-      <div class="card-header">
-         Communication Skills
-      </div>
+<h1 class="mt-5">ALS Junior Highschool</h1>
+<div class="cards-container">
+  <div class="card" *ngFor="let sub of classesJunior">
+      <img src="/assets/{{sub.image}}" alt="Class 1">
+      <div class="card-title">{{sub.subject_name}}</div>
       <div class="card-body">
-        <ul class="tree">
-          <li> Thursday - Friday</li>
-          <li>8:00 - 10:30</li>
-        </ul>
-      </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          Digital Citizenship
-        </div>
-        <div class="card-body">
-          <ul class="tree">
-            <li> Thursday - Friday</li>
-            <li>3:00 - 5:00</li>
-          </ul>
-        </div>
+        <p class="subjecttime">{{sub.Schedule}}</p>
+        <p class="subjecttime">{{sub.school}}</p>
       </div>
   </div>
+</div>

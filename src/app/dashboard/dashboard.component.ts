@@ -20,4 +20,10 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class DashboardComponent {
 
+  isSidenavOpen = false;
+
+  toggleSidenav() {
+    this.isSidenavOpen = !this.isSidenavOpen;
+  }
+
 }

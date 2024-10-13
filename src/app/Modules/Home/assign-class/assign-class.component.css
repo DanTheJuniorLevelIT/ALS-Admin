@@ -12,20 +12,21 @@
 .card {
     background-color: #f6fafc;
     border-color: #F3EEED;
+    padding: 20px;
+    border-radius: 10px;
 }
 .form-label {
+    font-size: 0.8rem;
+    font-weight: 450;
+    color: #012641; 
+}
+.form-check-label {
     font-size: 1rem;
     font-weight: 500;
     color: #012641; 
 }
-.form-check-label{
-    font-size: 1rem;
-    font-weight: 500;
-    color: #012641; 
-}
-.form-select {
-    font-size: 1rem;
-    font-weight: 500;
+.form-control {
+    border-radius: 8px;
 }
 @media (max-width: 576px) {
     .form-label, .form-select, .form-control {
