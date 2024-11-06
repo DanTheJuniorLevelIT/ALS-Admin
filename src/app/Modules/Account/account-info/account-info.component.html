@@ -1,12 +1,19 @@
 <div class="account-card">
-    <div class="profile-picture-container">
-        <img src="./assets/log.png" alt="Profile Picture" class="profile-picture">
-        <input type="file" id="upload-photo" class="upload-photo">
-        <label for="upload-photo" class="upload-photo-label">Upload Photo</label>
-    </div>
     <!-- Assuming `admin` is an array, hence `*ngFor`. If it's a single object, remove `*ngFor`. -->
     <div class="account-info" *ngFor="let admins of admin">
-        <h6>Account Information</h6>
+        <div class="profile-picture-container">
+            <div *ngIf="admins.media_files">
+                <ng-container *ngFor="let mediaFile of admins.media_files.split(',')">
+                    <!-- <a>{{ mediaFile }}</a> -->
+                    <img [src]="'http://localhost:8000/storage/uploads/' + mediaFile"  class="rounded-circle" style="height: 150px; width: 150px; object-fit: cover;">
+                    <br>
+                </ng-container>
+            </div>
+            <!-- <img src="./assets/log.png" alt="Profile Picture" class="profile-picture"> -->
+             <br>
+            <button type="submit" (click)="storeTeacherId(admins.adminid)" [routerLink]="['/main/Account/mainAccount/changeprofile']" class="profile-btn">Upload Image</button>
+        </div>
+        <h4>Account Information</h4>
         
         <!-- First Name -->
         <div class="form-group">

@@ -1,0 +1,41 @@
+<!-- HTML Template -->
+<div class="container">
+    <div class="d-flex" >
+        <div>
+            <span style="font-size: 1.8em; font-weight: bold; display: block;">{{ allstud[0].subject_name }}</span>
+            <span style="font-size: 1.0em; font-weight: bold; ">{{ allstud[0].Schedule }} |</span>
+            <span style="font-size: 1.0em; font-weight: bold; "> {{ allstud[0].location }}</span>
+        </div>
+    </div>
+    <hr>
+    <!-- Table Section -->
+    <div class="table-responsive">
+        <table class="table table-border table-striped text-center">
+            <thead>
+                <tr class="align-middle">
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Gender</th>
+                    <th>Birthday</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of allstud">
+                    <td>{{ s.firstname }} {{ s.middlename }}. {{ s.lastname }}</td>
+                    <td>{{ s.contact_numbers }}</td>
+                    <td>{{ s.gender }}</td>
+                    <td>{{ s.birthdate | date }}</td>
+                    <td>{{ calculateAge(s.birthdate) }}</td>
+                    <td>{{ s.email }}</td>
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+   
+</div>

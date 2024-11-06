@@ -11,7 +11,14 @@
     <div class="row">
         <div class="col-md-3" *ngFor="let teacher of teachers">
             <div class="card mb-4">
-                <img class="card-img-top" src="/assets/als.jpg" alt="Teacher Image" style="height: 200px; object-fit: cover;">
+                <div *ngIf="teacher.media_files">
+                    <ng-container *ngFor="let mediaFile of teacher.media_files.split(',')">
+                        <!-- <a>{{ mediaFile }}</a> -->
+                        <img [src]="'http://localhost:8000/storage/uploads/' + mediaFile"  class="card-img-top" style="height: 200px; object-fit: cover;">
+                        <br>
+                    </ng-container>
+                </div>
+                <!-- <img class="card-img-top" src="/assets/als.jpg" alt="Default Teacher Image" style="height: 200px; object-fit: cover;" *ngIf="!teacher.media_files"> -->
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ teacher.firstname }} {{ teacher.middlename }} {{ teacher.lastname }}</h5>
                     <p class="card-text"><strong>Contact:</strong> {{ teacher.mobile_number }}</p>
@@ -20,10 +27,10 @@
                     <p class="card-text"><strong>Address:</strong> {{ teacher.address }}</p>
                     <p class="card-text"><strong>Email:</strong> {{ teacher.email }}</p>
                     <div class="d-flex justify-content-center">
-                        <a class="btn btn-primary me-2" (click)="storeTeacherId(teacher.adminID)" [routerLink]="['/main/Teacher/mainTeacher/teachersubject']">
+                        <a class="btn btn-primary me-2" (click)="storeTeacherId(teacher.adminid)" [routerLink]="['/main/Teacher/mainTeacher/teachersubject']">
                             <i class="fa fa-eye" aria-hidden="true"></i> View Subjects
                         </a>
-                        <a class="btn btn-secondary" (click)="storeTeacherId(teacher.adminID)" [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
+                        <a class="btn btn-secondary" (click)="storeTeacherId(teacher.adminid)" [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
                             <i class="fa fa-edit" aria-hidden="true"></i> Edit
                         </a>
                     </div>

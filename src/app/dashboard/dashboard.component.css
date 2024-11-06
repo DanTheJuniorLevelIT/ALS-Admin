@@ -11,13 +11,22 @@
   background-color: #dcdcdc;
 }
 
-.profile-picture {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 16px auto;
-  display: block;
+.profile {
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
+  margin: 16px 0; /* Add vertical spacing */
 }
+
+.profile img {
+  width: 120px; /* Adjust as needed */
+  height: 120px; /* Adjust as needed */
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block; /* Ensure it's a block element */
+}
+
 
 .head {
   color: #f2f2f2;
@@ -54,11 +63,6 @@
   padding: 10px;
 }
 
-.white-icon {
-  color: white;
-  margin-right: 16px;
-}
-
 .bg-color {
   color: #f2f2f2;
   font-weight: 500; /* Optional: make the text bolder */
@@ -67,6 +71,7 @@
   align-items: center;
   flex-grow: 1; 
 }
+
 .mat-list-item {
   display: flex;
   align-items: center; /* Vertically center icon and text */

@@ -33,9 +33,9 @@ export class LoginComponent implements OnInit{
           const token = response.token;
           console.log('Token:', token);
 
-          // const user = response.user;
-          // console.log('user:', user);
-          // localStorage.setItem('user', user);
+          const user = response.user;
+          console.log('user:', user);
+          localStorage.setItem('user', user.adminID);
   
           // Store the token in local storage (or a service if needed)
           localStorage.setItem('authToken', token);

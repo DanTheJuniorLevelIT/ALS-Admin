@@ -1,45 +1,39 @@
-
-.profile-pic {
-    object-fit: cover;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 4px #9b9a9a solid;
-    margin-bottom: 1rem;
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
-  }
-
-  .form-control {
-    border-radius: 0.25rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .btn {
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  .btn-primary {
-    background-color: #60B3D1;
-    border-color: #60B3D1;
-    color: #fff;
-  }
-
-  .btn-primary:hover {
-    background-color: #012641;
-    border-color: #012641;
-  }
-.card{
-  background-color: #c3c3c3;
-  border-color: #c1c1c1;
-}
-.card{
-  background-color: #c3c3c3;
-  border-color: #c1c1c1;
+.container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  min-height: 100vh;
 }
 
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.custom-file-input {
+  margin-top: 10px;
+}
+
+.custom-file-label {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.btn-primary {
+  width: 100%;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}

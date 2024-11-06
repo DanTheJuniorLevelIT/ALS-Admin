@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../../../api-service.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-teacher-subjects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './teacher-subjects.component.html',
   styleUrl: './teacher-subjects.component.css'
 })
@@ -36,6 +36,14 @@ export class TeacherSubjectsComponent implements OnInit{
     this.classesblp = this.allsubs.filter((sub:{Program: string})=> sub.Program == 'Basic Literacy Program')
     this.classesElem = this.allsubs.filter((sub:{Program: string})=> sub.Program == 'ALS Elementary')
     this.classesJunior = this.allsubs.filter((sub:{Program: string})=> sub.Program == 'ALS Junior High School')
+  }
+
+  selectedClassId: any;
+
+  storeTeacherId(studentid: number) {
+    this.selectedClassId = studentid;
+    console.log('Selected Class ID:', this.selectedClassId);
+    localStorage.setItem('classID', this.selectedClassId)
   }
 
 }

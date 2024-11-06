@@ -100,11 +100,13 @@ onFileSelected(event: any) {
 
 onUpload() {
   const adminId = localStorage.getItem('TeacherID');
+  console.log(adminId)
   if (this.selectedFile) {
     this.apiService.uploadFile(adminId, this.selectedFile).subscribe(
       (response) => {
         console.log('File uploaded successfully:', response);
         alert('File uploaded successfully');
+         this.route.navigate(['/main/Teacher/mainTeacher/viewTeacher']);
       },
       (error) => {
         console.error('Error uploading file:', error);

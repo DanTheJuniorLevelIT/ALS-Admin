@@ -1,11 +1,14 @@
 <div class="container">
     <div class="search form-inline">
         <label for="search-input">Barangay:</label>
-        <input type="search" class="form-control search-input" [(ngModel)]="keyword" placeholder="Search Bar"  style="font-size:1vw;">
-        <button class="btn" [routerLink]="['/main/Class/mainClass/newClass']" style="background-color: #012641; color: #fff;"> <i class="fa fa-plus"></i>New Class </button>
+        <input type="search" class="form-control search-input" [(ngModel)]="keyword" placeholder="Search Bar" style="font-size:1vw;">
+        <button class="btn" [routerLink]="['/main/Class/mainClass/newClass']" style="background-color: #012641; color: #fff;">
+            <i class="fa fa-plus"></i> New Class
+        </button>
     </div>
     <hr>
-</div>
+
+
 <!-- Table Section -->
 <div class="table-responsive">
     <table class="table table-border table-striped text-center">
@@ -19,19 +22,41 @@
             </tr>
         </thead>
         <tbody>
-            
             <tr class="tab" *ngFor="let class of classBLS | search: keyword">
-                <td>{{ class.subject_name}} </td>
-                <td>{{ class.firstname}} {{ class.middlename}} {{class.lastname}}</td>
+                <td>{{ class.subject_name }}</td>
+                <td>{{ class.firstname }} {{ class.middlename }} {{ class.lastname }}</td>
                 <td>{{ class.Schedule }}</td>
                 <td>{{ class.location }}</td>
                 <td>
-                    <!-- <a class="" (click)="storeStudentId(student.studentid)" [routerLink]="['/main/Student/mainStudent/updateRecordS']">
-                        <i class="fa fa-edit" aria-hidden="true"></i> Edit
-                      </a> -->
+                    <div class="text-end">
+                        <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="openModal(class.classid)">
+                            Add Student
+                        </button>
+                    </div>
                 </td>
             </tr>
-        
         </tbody>
     </table>
 </div>
+
+<!-- Modal -->
+<div class="modal" [ngClass]="{'show': isModalOpen}" >
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>Add Roster</h2>
+        
+        <form [formGroup]="assignClassForm">
+            <select class="form-control" id="Student" formControlName="studentID">
+              <option [ngValue]="null" selected disabled>Select Student</option>
+              <option *ngFor="let Student of approveStudentBLP" [ngValue]="Student.lrn">{{Student.firstname}} {{Student.middlename}}. {{Student.lastname}}</option>
+            </select>
+            <br>
+            <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal(selectedStudent)">
+                Approve
+            </button>
+        </form>
+    </div>
+</div>
+</div>
+
+

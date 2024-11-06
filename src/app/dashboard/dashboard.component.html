@@ -1,9 +1,12 @@
 <mat-sidenav-container class="sidenav-container">
     <!-- Sidebar -->
     <mat-sidenav #sidenav mode="side" opened class="sidenav" role="navigation" aria-label="Main Menu">
-      <img src="./assets/als.jpg" alt="Profile Picture" class="profile-picture">
+      <!-- <img src="./assets/als.jpg" alt="Profile Picture" class="profile-picture"> -->
+      <div class="profile" *ngFor="let mediaFile of admin">
+            <img [src]="'http://localhost:8000/storage/uploads/' + mediaFile.media_files"  class="rounded-circle" style="height: 120px; width: 120px; object-fit: cover;">
+            <br>
+      </div>
       <header class="head"> Admin</header>
-  
       <mat-nav-list>
         <mat-list-item [routerLink]="['/main/Home/mainHome/enroll']">
           <mat-icon class="white-icon">home</mat-icon>
@@ -30,7 +33,7 @@
           <span class="bg-color">Account</span>
         </mat-list-item>
   
-        <mat-list-item [routerLink]="['/login']">
+        <mat-list-item [routerLink]="['/login']" (click)="logout(token)">
           <mat-icon class="white-icon">lock_open</mat-icon>
           <span class="bg-color">Logout</span>
         </mat-list-item>

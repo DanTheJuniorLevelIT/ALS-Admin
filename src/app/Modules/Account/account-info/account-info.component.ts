@@ -16,41 +16,28 @@ storeduser:any;
 userData: any;
   constructor(private apiService: ApiServiceService, private route: Router) {}
 
+  selectedTeacherId: any;
+
+  storeTeacherId(studentid: number) {
+    this.selectedTeacherId = studentid;
+    console.log('Selected Teacher ID:', this.selectedTeacherId);
+    localStorage.setItem('uploadID', this.selectedTeacherId)
+  }
+
   ngOnInit(): void {
     
-  //   this.storeduser = localStorage.getItem('authToken');
-  //   console.log(this.storeduser);
-    
-  //   this.apiService.getAccount().subscribe((response) => {
-  //     console.log(response);  
-  //     this.admin = response; 
-  //     console.log('Admin:', this.admin);  
-  //   },
-  //   (error) => {
-  //     console.error('Error fetching subjects:', error);
-  //   }
-  // );
-
+    this.storeduser = localStorage.getItem('user');
+    console.log(this.storeduser);
   
-//   this.apiService.getAccount(this.storeduser).subscribe((response:any) => {
-//     console.log(response);  
-//     this.admin = response; 
-//     console.log('Admin:', this.admin);  
-//   },
-//   (error) => {
-//     console.error('Error fetching subjects:', error);
-//   }
-// );
-
-  // this.apiService.getAccount(this.storeduser).subscribe(
-  //   (data) => {
-  //     this.userData = data;
-  //     console.log(this.userData);
-  //   },
-  //   (error) => {
-  //     console.error('Error fetching user data', error);
-  //   }
-  // );
+  this.apiService.getAccount(this.storeduser).subscribe((response:any) => {
+    console.log(response);  
+    this.admin = response; 
+    console.log('Admin:', this.admin);  
+  },
+  (error) => {
+    console.error('Error fetching subjects:', error);
+  }
+);
   }
 
 }

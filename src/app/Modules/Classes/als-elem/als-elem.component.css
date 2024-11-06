@@ -1,35 +1,46 @@
 /* General button styling for consistency */
 .btn {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    text-align: center; /* Center text inside buttons */
 }
 
 /* Hover effect for buttons */
 .btn:hover {
-    background-color: #02436a;
+    background-color: #02436a; /* Darker shade for hover */
     color: #fff;
+}
+span {
+    font-size: 1.8em; /* Adjust the font size of the title */
+    font-weight: bold;
+    color: #012641;
 }
 
 /* Styling for buttons section */
 .buttons a {
     display: block;
     text-align: center;
-    margin-bottom: 10px;
 }
 
 @media (min-width: 768px) {
     .buttons a {
-        display: inline-block;
-        margin: 0 10px;
+        margin: 0 10px; /* Adjusted margin for larger screens */
     }
 }
 
-/* Title styling */
-h4, span {
-    color: #012641;
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
+
+.ms-auto {
+    margin-left: auto;
+}
+
 
 /* Table styling */
 .table {
@@ -38,6 +49,7 @@ h4, span {
 
 .table thead th {
     background-color: #012641;
+    
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
@@ -56,26 +68,41 @@ h4, span {
     background-color: #f9f9f9;
 }
 
-/* Modal */
-.modal-header, .modal-footer {
-    background-color: #012641;
-    color: white;
+/* Modal hidden by default */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dim background */
+    align-items: center;
+    justify-content: center;
 }
 
-.modal-body select {
-    border: 1px solid #ddd;
-    padding: 10px;
+/* Modal content styling */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
     border-radius: 5px;
-    margin-top: 10px;
-    font-size: 1rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive modal */
-@media (max-width: 576px) {
-    .modal-dialog {
-        width: 100%;
-        margin: 10px;
-    }
+/* Modal is shown when this class is added */
+.modal.show {
+    display: flex;
+}
+
+/* Close button */
+.close {
+    cursor: pointer;
+    float: right;
+    font-size: 1.5rem;
+    color: #333;
 }
 
 /* Scrollbar customization */
@@ -89,20 +116,6 @@ h4, span {
 }
 
 .table-responsive::-webkit-scrollbar-track {
-    background-color: #f0f0f0;
-}
-
-/* Custom scrollbar for modal */
-.modal-dialog-scrollable::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-dialog-scrollable::-webkit-scrollbar-thumb {
-    background-color: #60B3D1;
-    border-radius: 4px;
-}
-
-.modal-dialog-scrollable::-webkit-scrollbar-track {
     background-color: #f0f0f0;
 }
 .search {
@@ -132,4 +145,4 @@ h4, span {
   font-weight: 500;
   margin-right: 10px;
   display: inline-block;
-}   
+}

@@ -1,35 +1,41 @@
 <h1>Basic Literacy Program</h1>
 <div class="cards-container">
-  <div class="card" *ngFor="let sub of classesblp">
-      <img src="/assets/{{sub.image}}" alt="Class 1">
+  <div class="card" *ngFor="let sub of classesblp" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+    <a (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+    <img src="/assets/{{sub.image}}" alt="Class 1">
       <div class="card-title">{{sub.subject_name}}</div>
       <div class="card-body">
         <p class="subjecttime">{{sub.Schedule}}</p>
         <p class="subjecttime">{{sub.location}}</p>
       </div>
+    </a>
   </div>
 </div>
 
 <h1 class="mt-5">ALS Elementary</h1>
 <div class="cards-container">
-  <div class="card" *ngFor="let sub of classesElem">
-      <img src="/assets/{{sub.image}}" alt="Class 1">
+  <div class="card" *ngFor="let sub of classesElem" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+    <a (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+    <img src="/assets/{{sub.image}}" alt="Class 1">
       <div class="card-title">{{sub.subject_name}}</div>
       <div class="card-body">
         <p class="subjecttime">{{sub.Schedule}}</p>
         <p class="subjecttime">{{sub.location}}</p>
       </div>
+    </a>
   </div>
 </div>
 
 <h1 class="mt-5">ALS Junior Highschool</h1>
 <div class="cards-container">
-  <div class="card" *ngFor="let sub of classesJunior">
-      <img src="/assets/{{sub.image}}" alt="Class 1">
+  <div class="card" *ngFor="let sub of classesJunior" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+    <a (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+    <img src="/assets/{{sub.image}}" alt="Class 1">
       <div class="card-title">{{sub.subject_name}}</div>
       <div class="card-body">
         <p class="subjecttime">{{sub.Schedule}}</p>
         <p class="subjecttime">{{sub.school}}</p>
       </div>
+    </a>
   </div>
 </div>

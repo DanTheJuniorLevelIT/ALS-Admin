@@ -21,7 +21,7 @@
                     <th>Birthday</th>
                     <th>Age</th>
                     <th>Email</th>
-                    <th>Actions</th> <!-- Changed this header to Actions -->
+                    <th></th> <!-- Changed this header to Actions -->
                 </tr>
             </thead>
             <tbody>
@@ -49,11 +49,13 @@
         <div class="modal-content" (click)="$event.stopPropagation()">
             <span class="close" (click)="closeModal()">&times;</span>
             <h2>Assign Class</h2>
+            
             <form [formGroup]="assignClassForm">
                 <select class="form-control" id="gradelvl" formControlName="education">
                     <option [ngValue]="null" selected disabled>Select Grade Level</option>
                     <option *ngFor="let s of gradelevel" [ngValue]="s">{{ s }}</option>
                 </select>
+                <br>
                 <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal(selectedStudent)">
                     Approve
                 </button>

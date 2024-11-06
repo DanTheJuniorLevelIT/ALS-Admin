@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,9 +33,8 @@ export class ApiServiceService {
     return this.http.get<any>(this.url + 'api/getTeachersName');
   }
 
-  getAccount(): Observable<any> {
-    const headers = {'Authorization': 'Bearer ' + this.token};
-    return this.http.get<any>(this.url + 'api/showAccount', { headers });
+  getAccount(id:number): Observable<any> {
+    return this.http.get<any>(this.url + `api/showAccount/${id}`);
   }
 //home
   getPendingStudent(): Observable<any> {
@@ -114,12 +113,30 @@ export class ApiServiceService {
     return this.http.get<any>(this.url + `api/getAllSub`);
   }
 
-  uploadFile(adminId:any,file:File){
-    const formdata = new FormData();
-    formdata.append('admin_id',adminId)
-    formdata.append('file',file)
+  uploadFile(adminId: any, file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('adminid', adminId);
+    formData.append('file', file);
+    return this.http.post(this.url + 'api/uploadMedia', formData, {
+    });
+  }
+  
 
-    return this.http.post(this.url + 'api/uploadMedia', formdata);
+  logoutLearner(token: string){
+    const headers ={
+      'Authorization': `Bearer ${token}`
+    };
+    return this.http.post(this.url + 'api/logoutAdmin', {},{headers});
+  }
+  addRoster(data: any) {
+    return this.http.post(this.url + 'api/addRoster', data);
+  }
+  getRoster(id:number){
+    return this.http.get<any>(this.url + `api/teacher/getRoster/${id}`);
+  }
+
+  showStudentBLP(): Observable<any> {
+    return this.http.get<any>(this.url + 'api/class/showStudentBLP');
   }
 
 }

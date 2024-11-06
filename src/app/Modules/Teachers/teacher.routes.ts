@@ -4,6 +4,7 @@ import { NewTeachersComponent } from './new-teachers/new-teachers.component';
 import { UpdaterecordTeacherComponent } from './updaterecord-teacher/updaterecord-teacher.component';
 import { MainTeachersComponent } from './main-teachers/main-teachers.component';
 import { TeacherSubjectsComponent } from './teacher-subjects/teacher-subjects.component';
+import { StudenListComponent } from './studen-list/studen-list.component';
 
 
 export const teacherRoute: Routes = [
@@ -13,6 +14,7 @@ export const teacherRoute: Routes = [
             {path: 'newTeacher', component: NewTeachersComponent},
             {path: 'updateRecordT', component: UpdaterecordTeacherComponent},
             {path: 'teachersubject', component: TeacherSubjectsComponent},
+            {path: 'StudentSubList', component: StudenListComponent},
             {path: '', redirectTo: 'viewTeacher', pathMatch: 'full'}
         ]
     },
