@@ -48,7 +48,7 @@
               <option *ngFor="let Student of approveStudentJunior" [ngValue]="Student.lrn">{{Student.firstname}} {{Student.middlename}}. {{Student.lastname}}</option>
             </select>
             <br>
-            <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal(selectedStudent)">
+            <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal()">
                 Approve
             </button>
         </form>

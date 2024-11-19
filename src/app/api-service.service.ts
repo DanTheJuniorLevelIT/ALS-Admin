@@ -115,7 +115,7 @@ export class ApiServiceService {
 
   uploadFile(adminId: any, file: File): Observable<any> {
     const formData = new FormData();
-    formData.append('adminid', adminId);
+    formData.append('uploader_id', adminId);
     formData.append('file', file);
     return this.http.post(this.url + 'api/uploadMedia', formData, {
     });
@@ -135,9 +135,18 @@ export class ApiServiceService {
     return this.http.get<any>(this.url + `api/teacher/getRoster/${id}`);
   }
 
-  showStudentBLP(): Observable<any> {
-    return this.http.get<any>(this.url + 'api/class/showStudentBLP');
+ 
+  //classs
+  showStudentBLP(classid: number): Observable<any> {
+    return this.http.get<any>(`${this.url}api/class/showStudentBLP/${classid}`);
   }
+  showStudentAlsElem(classid: number): Observable<any> {
+    return this.http.get<any>(`${this.url}api/class/showStudentAlsElem/${classid}`);
+  }
+  showStudentAlsJunior(classid: number): Observable<any> {
+    return this.http.get<any>(`${this.url}api/class/showStudentAlsJunior/${classid}`);
+  }
+
 
 }
 

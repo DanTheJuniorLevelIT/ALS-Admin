@@ -1,6 +1,9 @@
-<h1>Basic Literacy Program</h1>
+<div *ngIf="allsubs && allsubs.length > 0">
+  <h1 class="teacher-name">{{ allsubs[0].firstname }} {{ allsubs[0].middlename }} {{ allsubs[0].lastname }}</h1>
+</div>
+<h2>Basic Literacy Program</h2>
 <div class="cards-container">
-  <div class="card" *ngFor="let sub of classesblp" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+  <div class="card" *ngFor="let sub of classesblp" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList, sub.classid']">
     <a (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
     <img src="/assets/{{sub.image}}" alt="Class 1">
       <div class="card-title">{{sub.subject_name}}</div>
@@ -12,9 +15,9 @@
   </div>
 </div>
 
-<h1 class="mt-5">ALS Elementary</h1>
+<h2 class="mt-5">ALS Elementary</h2>
 <div class="cards-container">
-  <div class="card" *ngFor="let sub of classesElem" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+  <div class="card" *ngFor="let sub of classesElem" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList',+ sub.classid]">
     <a (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
     <img src="/assets/{{sub.image}}" alt="Class 1">
       <div class="card-title">{{sub.subject_name}}</div>
@@ -26,9 +29,9 @@
   </div>
 </div>
 
-<h1 class="mt-5">ALS Junior Highschool</h1>
+<h2 class="mt-5">ALS Junior Highschool</h2>
 <div class="cards-container">
-  <div class="card" *ngFor="let sub of classesJunior" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
+  <div class="card" *ngFor="let sub of classesJunior" (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList, sub.classid']">
     <a (click)="storeTeacherId(sub.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList']">
     <img src="/assets/{{sub.image}}" alt="Class 1">
       <div class="card-title">{{sub.subject_name}}</div>

@@ -19,6 +19,7 @@
                 <th>Schedule</th>
                 <th>Location</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -27,13 +28,21 @@
                 <td>{{ class.firstname }} {{ class.middlename }} {{ class.lastname }}</td>
                 <td>{{ class.Schedule }}</td>
                 <td>{{ class.location }}</td>
+                <td> <div class="">
+                    <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList',+ class.classid]">
+                        view
+                    </button>
+                </div>
+            </td>
                 <td>
                     <div class="text-end">
                         <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="openModal(class.classid)">
                             Add Student
                         </button>
+                        
                     </div>
                 </td>
+               
             </tr>
         </tbody>
     </table>
@@ -51,7 +60,7 @@
               <option *ngFor="let Student of approveStudentBLP" [ngValue]="Student.lrn">{{Student.firstname}} {{Student.middlename}}. {{Student.lastname}}</option>
             </select>
             <br>
-            <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal(selectedStudent)">
+            <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal()">
                 Approve
             </button>
         </form>

@@ -16,6 +16,7 @@ export class AlsJuniorComponent implements OnInit{
   keyword: any;
   classJunior:any;
   approveStudentJunior:any;
+  selectedClassId:any;
 
   constructor(private apiService: ApiServiceService, private route: Router){}
 
@@ -31,15 +32,15 @@ export class AlsJuniorComponent implements OnInit{
     }
   );
 
-  this.apiService.getApproveStudentJUNIOR().subscribe((response) => {
-    console.log(response);  
-    this.approveStudentJunior = response; 
-    console.log('pending student:', this.approveStudentJunior);  
-  },
-  (error) => {
-    console.error('Error fetching subjects:', error);
-  }
-);
+//   this.apiService.getApproveStudentJUNIOR().subscribe((response) => {
+//     console.log(response);  
+//     this.approveStudentJunior = response; 
+//     console.log('pending student:', this.approveStudentJunior);  
+//   },
+//   (error) => {
+//     console.error('Error fetching subjects:', error);
+//   }
+// );
 }
 assignClassForm = new FormGroup({
   studentID: new FormControl(null)  // Initialize with null or appropriate default
@@ -48,10 +49,19 @@ assignClassForm = new FormGroup({
 selectedStudent:any;
 isModalOpen = false;
 
-openModal(pendingStudent: any) {
-  this.selectedStudent = pendingStudent;
-  console.log('classs',this.selectedStudent);
+openModal(classid: number) {
+  this.selectedClassId = classid;  // Store selected class ID
   this.isModalOpen = true;
+  this.apiService.showStudentAlsJunior(classid).subscribe(
+      (response) => {
+          console.log(response);  
+          this.approveStudentJunior = response;  
+          console.log('Approve student:', this.approveStudentJunior);  
+      },
+      (error) => {
+          console.error('Error fetching students:', error);
+      }
+  );
 }
 
 closeModal() {
@@ -59,13 +69,14 @@ closeModal() {
 }
 
 
-approveModal(selectedStudent: number) {
-  selectedStudent
+approveModal() {
+  // selectedStudent
   const formValues = this.assignClassForm.value;
     
     const formData = {
       lrn: formValues.studentID,
-      classid:selectedStudent.toString()
+      // classid:selectedStudent
+      classid: this.selectedClassId.toString()
     };
   
     console.log('Final Form Data to Save:', formData);

@@ -50,6 +50,13 @@ h1 {
   font-weight: 700;
   /* text-align: center; */
   margin-top: 40px;
+  color: #000000;
+}
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  /* text-align: center; */
+  margin-top: 40px;
   color: #333;
 }
 

@@ -15,6 +15,7 @@ export class AlsBlpComponent implements OnInit{
   keyword: any;
   classBLS:any;
   approveStudentBLP:any;
+  selectedClassId: any;
 
   constructor(private apiService: ApiServiceService, private route: Router){}
 
@@ -29,15 +30,15 @@ export class AlsBlpComponent implements OnInit{
     }
   );
   
-  this.apiService.showStudentBLP().subscribe((response) => {
-    console.log(response);  
-    this.approveStudentBLP = response; 
-    console.log('Approve student:', this.approveStudentBLP);  
-  },
-  (error) => {
-    console.error('Error fetching subjects:', error);
-  }
-);
+//   this.apiService.showStudentBLP().subscribe((response) => {
+//     console.log(response);  
+//     this.approveStudentBLP = response; 
+//     console.log('Approve student:', this.approveStudentBLP);  
+//   },
+//   (error) => {
+//     console.error('Error fetching subjects:', error);
+//   }
+// );
   }
 
   assignClassForm = new FormGroup({
@@ -47,23 +48,33 @@ export class AlsBlpComponent implements OnInit{
   selectedStudent:any;
   isModalOpen = false;
 
-  openModal(pendingStudent: any) {
-    this.selectedStudent = pendingStudent;
-    console.log(this.selectedStudent);
+  openModal(classid: number) {
+    this.selectedClassId = classid;  // Store selected class ID
     this.isModalOpen = true;
-  }
+    this.apiService.showStudentBLP(classid).subscribe(
+        (response) => {
+            console.log(response);  
+            this.approveStudentBLP = response;  
+            console.log('Approve student:', this.approveStudentBLP);  
+        },
+        (error) => {
+            console.error('Error fetching students:', error);
+        }
+    );
+}
 
   closeModal() {
     this.isModalOpen = false;
   }
 
-  approveModal(selectedStudent: number) {
-    selectedStudent
+  approveModal() {
+    // selectedStudent
     const formValues = this.assignClassForm.value;
       
       const formData = {
         lrn: formValues.studentID,
-        classid:selectedStudent.toString()
+        // classid:selectedStudent
+        classid: this.selectedClassId.toString()
       };
     
       console.log('Final Form Data to Save:', formData);

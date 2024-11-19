@@ -16,6 +16,7 @@ export class AlsElemComponent implements OnInit{
   classElem:any;
   keyword: any;
   approveStudentELEM:any;
+  selectedClassId:any;
 
   constructor(private apiService: ApiServiceService, private route: Router){}
 
@@ -30,15 +31,15 @@ export class AlsElemComponent implements OnInit{
       }
     );
 
-    this.apiService.getApproveStudentELEM().subscribe((response) => {
-      console.log(response);  
-      this.approveStudentELEM = response; 
-      console.log('pending student:', this.approveStudentELEM);  
-    },
-    (error) => {
-      console.error('Error fetching subjects:', error);
-    }
-  );
+  //   this.apiService.getApproveStudentELEM().subscribe((response) => {
+  //     console.log(response);  
+  //     this.approveStudentELEM = response; 
+  //     console.log('pending student:', this.approveStudentELEM);  
+  //   },
+  //   (error) => {
+  //     console.error('Error fetching subjects:', error);
+  //   }
+  // );
   }
 
   assignClassForm = new FormGroup({
@@ -48,22 +49,38 @@ export class AlsElemComponent implements OnInit{
   selectedStudent:any;
   isModalOpen = false;
 
-  openModal(pendingStudent: any) {
-    this.selectedStudent = pendingStudent;
-    console.log(this.selectedStudent);
+  // openModal(pendingStudent: any) {
+  //   this.selectedStudent = pendingStudent;
+  //   console.log(this.selectedStudent);
+  //   this.isModalOpen = true;
+  // }
+  openModal(classid: number) {
+    this.selectedClassId = classid;  // Store selected class ID
     this.isModalOpen = true;
-  }
+    this.apiService.showStudentAlsElem(classid).subscribe(
+        (response) => {
+            console.log(response);  
+            this.approveStudentELEM = response;  
+            console.log('Approve student:', this.approveStudentELEM);  
+        },
+        (error) => {
+            console.error('Error fetching students:', error);
+        }
+    );
+}
 
   closeModal() {
     this.isModalOpen = false;
   }
-  approveModal(selectedStudent: number) {
-    selectedStudent
+  
+  approveModal() {
+    // selectedStudent
     const formValues = this.assignClassForm.value;
       
       const formData = {
         lrn: formValues.studentID,
-        classid:selectedStudent.toString()
+        // classid:selectedStudent
+        classid: this.selectedClassId.toString()
       };
     
       console.log('Final Form Data to Save:', formData);
