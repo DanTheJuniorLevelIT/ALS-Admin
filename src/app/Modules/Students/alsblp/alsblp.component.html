@@ -11,6 +11,7 @@
                 <th>Age</th>
                 <th>Email</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,11 @@
                 <td>
                 <a class="" (click)="storeStudentId(student.studentid)" [routerLink]="['/main/Student/mainStudent/updateRecordS']">
                     <i class="fa fa-edit" aria-hidden="true"></i> Edit
+                  </a>
+            </td>
+            <td>
+                <a class="" (click)="DeleteStudent(student.studentid)" [routerLink]="['/main/Student/mainStudent/viewStudent/alsblp']">
+                    <i class="fa fa-trash" aria-hidden="true"></i> Delete
                   </a>
             </td>
             </tr>

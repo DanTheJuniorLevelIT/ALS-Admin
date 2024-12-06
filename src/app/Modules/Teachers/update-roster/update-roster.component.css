@@ -1,0 +1,71 @@
+/* Container styling */
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  /* Card styling */
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f8f9fa;
+  }
+  .form-group-container {
+    display: flex;
+    gap: 20px; /* Adjust spacing between the fields */
+  }
+  
+  .form-group {
+    flex: 1; /* Equal width for both time inputs */
+  }
+  
+  
+  /* Form heading */
+  .card h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Form group spacing */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Labels */
+  label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Select and input styling */
+  .form-select, .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 8px;
+  }
+  
+  /* Button styling */
+  .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Padding around the form elements */
+  .form-group.p-1 {
+    padding: 5px 0;
+  }
+  

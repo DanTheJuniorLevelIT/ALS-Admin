@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ApiServiceService } from '../../../api-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-updaterecord-teacher',
@@ -98,23 +99,46 @@ onFileSelected(event: any) {
   }
 }
 
+
 onUpload() {
   const adminId = localStorage.getItem('TeacherID');
-  console.log(adminId)
+  console.log(adminId);
+
   if (this.selectedFile) {
     this.apiService.uploadFile(adminId, this.selectedFile).subscribe(
       (response) => {
         console.log('File uploaded successfully:', response);
-        alert('File uploaded successfully');
-         this.route.navigate(['/main/Teacher/mainTeacher/viewTeacher']);
+
+        // SweetAlert for success
+        Swal.fire({
+          icon: 'success',
+          title: 'Upload Successful',
+          text: 'The file has been uploaded successfully!',
+          confirmButtonColor: '#3085d6',
+        }).then(() => {
+          this.route.navigate(['/main/Teacher/mainTeacher/viewTeacher']);
+        });
       },
       (error) => {
         console.error('Error uploading file:', error);
-        alert('Error uploading file');
+
+        // SweetAlert for error
+        Swal.fire({
+          icon: 'error',
+          title: 'Upload Failed',
+          text: 'An error occurred while uploading the file. Please try again.',
+          confirmButtonColor: '#d33',
+        });
       }
     );
   } else {
-    alert('No file selected. Please choose a file to upload.');
+    // SweetAlert for no file selected
+    Swal.fire({
+      icon: 'warning',
+      title: 'No File Selected',
+      text: 'Please choose a file to upload.',
+      confirmButtonColor: '#f39c12',
+    });
   }
 }
 

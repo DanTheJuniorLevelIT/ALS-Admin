@@ -3,6 +3,7 @@ import { ApiServiceService } from '../../../api-service.service';
 import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-updaterecord-student',
@@ -31,6 +32,7 @@ export class UpdaterecordStudentComponent implements OnInit{
     placeofbirth: new FormControl(null),
     contact_numbers: new FormControl(null),
     gender: new FormControl(null),
+    program: new FormControl(null),
     civil_status: new FormControl(null),
     education: new FormControl(null),
     email: new FormControl(null),
@@ -57,6 +59,7 @@ export class UpdaterecordStudentComponent implements OnInit{
       this.profileForm.controls['gender'].setValue(this.student[0].gender);
       this.profileForm.controls['civil_status'].setValue(this.student[0].civil_status);
       this.profileForm.controls['education'].setValue(this.student[0].education);
+      this.profileForm.controls['program'].setValue(this.student[0].program);
       this.profileForm.controls['email'].setValue(this.student[0].email);
     
     })
@@ -68,19 +71,42 @@ export class UpdaterecordStudentComponent implements OnInit{
 
   updateInfo() {
     console.log(this.idNumber);
+  
     if (this.profileForm.valid) {
       this.apiService.updateStudentINFO(this.idNumber, this.profileForm.value).subscribe(
         (response) => {
           console.log('User updated successfully', response);
-          this.route.navigate(['/main/Student/mainStudent/viewStudent/alsblp']);
+  
+          // SweetAlert for success
+          Swal.fire({
+            icon: 'success',
+            title: 'Update Successful',
+            text: 'The student information has been updated successfully!',
+            confirmButtonColor: '#3085d6',
+          }).then(() => {
+            this.route.navigate(['/main/Student/mainStudent/viewStudent/alsblp']);
+          });
         },
         (error) => {
           console.error('Error updating user', error);
+  
+          // SweetAlert for error
+          Swal.fire({
+            icon: 'error',
+            title: 'Update Failed',
+            text: 'An error occurred while updating the student information. Please try again.',
+            confirmButtonColor: '#d33',
+          });
         }
       );
     } else {
-      console.error('Form is invalid');
-      // Add some error feedback to the user
+      // SweetAlert for invalid form
+      Swal.fire({
+        icon: 'warning',
+        title: 'Invalid Form',
+        text: 'Please fill out all required fields correctly before submitting.',
+        confirmButtonColor: '#f39c12',
+      });
     }
   }
 

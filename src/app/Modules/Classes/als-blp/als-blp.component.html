@@ -28,9 +28,10 @@
                 <td>{{ class.firstname }} {{ class.middlename }} {{ class.lastname }}</td>
                 <td>{{ class.Schedule }}</td>
                 <td>{{ class.location }}</td>
-                <td> <div class="">
-                    <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList',+ class.classid]">
-                        view
+                <td> <div class="text-end">
+                    <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList', class.classid]"
+                    (click)="storeTeacherId(class.classid)">
+                        View
                     </button>
                 </div>
             </td>
@@ -52,7 +53,11 @@
 <div class="modal" [ngClass]="{'show': isModalOpen}" >
     <div class="modal-content" (click)="$event.stopPropagation()">
         <span class="close" (click)="closeModal()">&times;</span>
-        <h2>Add Roster</h2>
+        @for (item of clasid; track item.subject_name){
+            <h1>{{item.subject_name}} </h1>
+            <h2>{{ item.firstname }} {{ item.middlename }} {{ item.lastname }}</h2>
+        }
+        <h3>Add Roster</h3>
         
         <form [formGroup]="assignClassForm">
             <select class="form-control" id="Student" formControlName="studentID">
@@ -60,9 +65,12 @@
               <option *ngFor="let Student of approveStudentBLP" [ngValue]="Student.lrn">{{Student.firstname}} {{Student.middlename}}. {{Student.lastname}}</option>
             </select>
             <br>
-            <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal()">
-                Approve
-            </button>
+            <div class="col-12 text-end">
+                <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal()">
+                    Approve
+                </button>
+            </div>
+            
         </form>
     </div>
 </div>

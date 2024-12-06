@@ -47,26 +47,50 @@
 
         <!-- Password Section -->
         <div class="form-group">
-            <label for="password">Update Password:</label>
+            <label for="password">Password:</label>
             <span>*****************</span>
         </div>
         
         <!-- Current Password -->
-        <div class="form-group">
-            <input type="password" id="Currentpassword" name="password" required placeholder="Current Password">
-        </div>
-
-        <!-- New Password -->
-        <div class="form-group">
-            <input type="password" id="Newpassword" name="password" required placeholder="New Password">
-        </div>
-
-        <!-- Retype Password -->
-        <div class="form-group">
-            <input type="password" id="Repassword" name="password" required placeholder="Retype Password">
-        </div>
-
-        <!-- Update Button -->
-        <button type="submit" class="update-btn">Update Password</button>
-    </div>
+        <form [formGroup]="passwordForm" (ngSubmit)="newPass()">
+            <!-- Current Password -->
+            <div class="form-group mb-3">
+                <label for="Currentpassword" class="form-label">Current Password</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    id="Currentpassword"
+                    formControlName="currentPassword"
+                    placeholder="Enter your current password"
+                >
+            </div>
+        
+            <!-- New Password -->
+            <div class="form-group mb-3">
+                <label for="Newpassword" class="form-label">New Password</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    id="Newpassword"
+                    formControlName="password"
+                    placeholder="Enter your new password"
+                >
+            </div>
+        
+            <!-- Retype Password -->
+            <div class="form-group mb-3">
+                <label for="Repassword" class="form-label">Retype Password</label>
+                <input
+                    type="password"
+                    class="form-control"
+                    id="Repassword"
+                    formControlName="password_confirmation"
+                    placeholder="Retype your new password"
+                >
+            </div>
+        
+            <!-- Update Button -->
+            <button type="submit" class="btn btn-primary" >Update Password</button>
+        </form>
+        
 </div>

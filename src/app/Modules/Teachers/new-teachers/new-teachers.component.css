@@ -1,41 +1,54 @@
-
-.profile-pic {
-    object-fit: cover;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 4px #f7f9fb solid;
-    margin-bottom: 1rem;
-  }
-
-  .form-group {
-    margin-bottom: 1rem;
-  }
-
-  .form-control {
-    border-radius: 0.25rem;
-    padding: 0.5rem 0.75rem;
-  }
-
-  .btn {
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-  }
-
-  .btn-primary {
-    background-color: #60B3D1;
-    border-color: #60B3D1;
-    color: #fff;
-  }
-
-  .btn-primary:hover {
-    background-color: #012641;
-    border-color: #012641;
-  }
-.card{
-    background-color: #f6fafc;
-    border-color: #F3EEED;
+.btn {
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-align: center; 
+}
+.btn:hover {
+  background-color: #012641;
+  border-color: #012641;
 }
 
+.seamless-btn {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: inherit; /* Matches the surrounding text color */
+}
+
+.seamless-btn:focus {
+  outline: none; /* Remove focus ring for better UX */
+}
+
+.seamless-btn:hover {
+  opacity: 0.8; 
+}
+.card {
+  background-color: #f6fafc;
+  border-color: #F3EEED;
+  padding: 20px;
+  border-radius: 10px;
+}
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 450;
+  color: #012641; 
+}
+.form-check-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #012641; 
+}
+.form-control {
+  border-radius: 8px;
+}
+@media (max-width: 576px) {
+  .form-label, .form-select, .form-control {
+      font-size: 0.9rem;
+  }
+  .btn {
+      font-size: 0.9rem;
+  }
+}

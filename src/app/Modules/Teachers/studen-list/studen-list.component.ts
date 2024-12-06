@@ -12,7 +12,10 @@ import { CommonModule } from '@angular/common';
 })
 export class StudenListComponent implements OnInit{
   idNumber:any
-  allstud:any;
+  class:any
+  allstud: any[] = [];
+  selectedStudentId:any;
+
   constructor(private apiService: ApiServiceService, private route: Router){}
 
   ngOnInit(): void {
@@ -25,7 +28,26 @@ export class StudenListComponent implements OnInit{
       this.allstud = result;
       // this.filterSub();
       console.log('classaalll',this.allstud);
-    })
+    });
+
+    this.apiService.getClassByID(this.idNumber).subscribe((response) => {
+      console.log(response);  
+      this.class = response; 
+      console.log('Approve student:', this.class);  
+    },
+    (error) => {
+      console.error('Error fetching subjects:', error);
+    }
+  );
+  }
+
+  // storeStudentId(studentid: number) {
+  //   this.selectedStudentId = studentid;
+  //   console.log('Selected Student ID:', this.selectedStudentId);
+  //   localStorage.setItem('StudentID', this.selectedStudentId)
+  // }
+  storeStudentId() {
+    
   }
 
   calculateAge(birthdate: string | Date): number {

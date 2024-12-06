@@ -30,6 +30,10 @@
 h4, span {
     color: #012641;
 }
+h1{
+    
+    font-weight: bold;
+}
 
 /* Table styling */
 .table {

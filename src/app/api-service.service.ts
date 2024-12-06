@@ -40,6 +40,9 @@ export class ApiServiceService {
   getPendingStudent(): Observable<any> {
     return this.http.get<any>(this.url + 'api/showPendingStudent');
   }
+  getPendingStudentName(id:number): Observable<any> {
+    return this.http.get<any>(this.url + `api/showPendingStudentName/${id}`);
+  }
   getApproveStudentBLP(): Observable<any> {
     return this.http.get<any>(this.url + 'api/enrol/showApproveStudentBLP');
   }
@@ -57,7 +60,7 @@ export class ApiServiceService {
     return this.http.get<any>(this.url + `api/student/retrieveLearner/${id}`);
   }
   updateStudentINFO(id: number, data: any): Observable<any> {
-    return this.http.patch(this.url + `api/student/updateStudentInfo/${id}`, data);
+    return this.http.post(this.url + `api/student/updateStudentInfo/${id}`, data);
   }
 
   getTeacher(id:number){
@@ -94,6 +97,9 @@ export class ApiServiceService {
   }
   getClassJunior(){
     return this.http.get<any>(this.url + `api/getAllClassJunior`);
+  }
+  getClassByID(id:number){
+    return this.http.get<any>(this.url + `api/getAllClassByID/${id}`);
   }
 
   getTeacherClassBLP(id:number){
@@ -146,7 +152,17 @@ export class ApiServiceService {
   showStudentAlsJunior(classid: number): Observable<any> {
     return this.http.get<any>(`${this.url}api/class/showStudentAlsJunior/${classid}`);
   }
+  updateLearnerPassword(pdata: any, aid: any) {
+    return this.http.post(`${this.url}api/updateLearnerPassword/${aid}`, pdata);
+  }
 
+  deleteStudent(studentid: number): Observable<any> {
+    return this.http.delete(`${this.url}api/deletestudent/${studentid}`);
+  }
+
+  deleteTeacher(studentid: number): Observable<any> {
+    return this.http.delete(`${this.url}api/deleteTeacher/${studentid}`);
+  }
 
 }
 

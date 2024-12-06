@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ApiServiceService } from '../../../api-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-junior',
@@ -33,6 +34,53 @@ export class JuniorComponent implements OnInit{
         console.error('Error fetching subjects:', error);
       }
     );
+  }
+
+  fetchstudent(){
+    this.apiService.getApproveStudentJUNIOR().subscribe((response) => {
+      console.log(response);  
+      this.approveStudentJunior = response; 
+      console.log('pending student:', this.approveStudentJunior);  
+    },
+    (error) => {
+      console.error('Error fetching subjects:', error);
+    }
+  );
+  }
+
+  DeleteStudent(studentid: number) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you really want to delete this student? This action cannot be undone.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiService.deleteStudent(studentid).subscribe({
+          next: (response) => {
+            Swal.fire(
+              'Deleted!',
+              'The student has been deleted successfully.',
+              'success'
+            );
+            // Optional: Refresh the student list
+            this.fetchstudent();
+          },
+          error: (err) => {
+            console.error('Error deleting student:', err);
+            Swal.fire(
+              'Failed!',
+              'Failed to delete the student. Please try again.',
+              'error'
+            );
+          },
+        });
+      }
+    });
   }
 
   calculateAge(birthdate: string | Date): number {

@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from '../../../search.pipe';  // Correct path to the pipe
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-als-blp',
   standalone: true,
@@ -16,6 +17,8 @@ export class AlsBlpComponent implements OnInit{
   classBLS:any;
   approveStudentBLP:any;
   selectedClassId: any;
+  storedclassID:any;
+  clasid:any;
 
   constructor(private apiService: ApiServiceService, private route: Router){}
 
@@ -29,16 +32,34 @@ export class AlsBlpComponent implements OnInit{
       console.error('Error fetching subjects:', error);
     }
   );
+
+  this.storedclassID = localStorage.getItem('studIDDD');
+    console.log(this.storedclassID);
   
-//   this.apiService.showStudentBLP().subscribe((response) => {
-//     console.log(response);  
-//     this.approveStudentBLP = response; 
-//     console.log('Approve student:', this.approveStudentBLP);  
-//   },
-//   (error) => {
-//     console.error('Error fetching subjects:', error);
-//   }
-// );
+    this.apiService.getClassByID(this.storedclassID).subscribe((response:any) => {
+      console.log(response);  
+      this.clasid = response; 
+      console.log('Admin:', this.clasid);  
+    },
+      (error) => {
+      console.error('Error fetching subjects:', error);
+      }
+    );
+
+  }
+  fetchID(){
+    this.storedclassID = localStorage.getItem('classID');
+    console.log(this.storedclassID);
+  
+    this.apiService.getClassByID(this.storedclassID).subscribe((response:any) => {
+      console.log(response);  
+      this.clasid = response; 
+      console.log('Admin:', this.clasid);  
+    },
+      (error) => {
+      console.error('Error fetching subjects:', error);
+      }
+    );
   }
 
   assignClassForm = new FormGroup({
@@ -50,7 +71,9 @@ export class AlsBlpComponent implements OnInit{
 
   openModal(classid: number) {
     this.selectedClassId = classid;  // Store selected class ID
+    localStorage.setItem('classID', this.selectedClassId)
     this.isModalOpen = true;
+    this.fetchID();
     this.apiService.showStudentBLP(classid).subscribe(
         (response) => {
             console.log(response);  
@@ -61,6 +84,12 @@ export class AlsBlpComponent implements OnInit{
             console.error('Error fetching students:', error);
         }
     );
+
+}
+storeTeacherId(studentid: number) {
+  this.selectedClassId = studentid;
+  console.log('Selected Class ID:', this.selectedClassId);
+  localStorage.setItem('classID', this.selectedClassId)
 }
 
   closeModal() {
@@ -68,31 +97,45 @@ export class AlsBlpComponent implements OnInit{
   }
 
   approveModal() {
-    // selectedStudent
     const formValues = this.assignClassForm.value;
-      
-      const formData = {
-        lrn: formValues.studentID,
-        // classid:selectedStudent
-        classid: this.selectedClassId.toString()
-      };
-    
-      console.log('Final Form Data to Save:', formData);
-     
-      
-      // Use the merged formData object for the API call
-      this.apiService.addRoster(formData).subscribe(
-        (response) => {
-          console.log('User enrolled:', response);  // Inspect response here
-          alert('Approved successfully!');
+  
+    const formData = {
+      lrn: formValues.studentID,
+      classid: this.selectedClassId.toString(),
+    };
+  
+    console.log('Final Form Data to Save:', formData);
+  
+    // Use the merged formData object for the API call
+    this.apiService.addRoster(formData).subscribe(
+      (response) => {
+        console.log('User enrolled:', response);
+  
+        // SweetAlert for success
+        Swal.fire({
+          icon: 'success',
+          title: 'Approval Successful',
+          text: 'The student has been successfully approved and added to the class roster!',
+          confirmButtonColor: '#3085d6',
+        }).then(() => {
           this.assignClassForm.reset();
           this.closeModal();
-          // this.fetchPendingStudents(); // Refresh the list if necessary
-        },
-        (error) => {
-          console.error('Error approving user:', error); // Check the exact error
-        }
-      );
-    }
+          // Uncomment this line if necessary
+          // this.fetchPendingStudents(); // Refresh the list of pending students
+        });
+      },
+      (error) => {
+        console.error('Error approving user:', error);
+  
+        // SweetAlert for error
+        Swal.fire({
+          icon: 'error',
+          title: 'Approval Failed',
+          text: 'An error occurred while approving the student. Please try again.',
+          confirmButtonColor: '#d33',
+        });
+      }
+    );
+  }
 
 }

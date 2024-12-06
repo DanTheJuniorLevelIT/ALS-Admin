@@ -5,6 +5,24 @@
     font-size: 1rem;
     font-weight: 500;
 }
+
+
+.seamless-btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: inherit; /* Matches the surrounding text color */
+}
+
+.seamless-btn:focus {
+    outline: none; /* Remove focus ring for better UX */
+}
+
+.seamless-btn:hover {
+    opacity: 0.8; 
+}
+
 .btn:hover {
     background-color: #012641;
     border-color: #012641;

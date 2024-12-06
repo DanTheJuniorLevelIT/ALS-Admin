@@ -77,6 +77,22 @@
                                 </div>
                             </div>
 
+                             <!-- Phone Number -->
+                             <div class="col-12 col-md-6 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="contact_numbers">Phone Number</label>
+                                    <input type="text" id="contact_numbers" formControlName="contact_numbers" class="form-control" />
+                                </div>
+                            </div>
+
+                             <!-- Civil Status -->
+                             <div class="col-12 col-md-6 mb-3">
+                                <div class="form-outline">
+                                    <label class="form-label" for="civil_status">Civil Status</label>
+                                    <input type="text" id="civil_status" formControlName="civil_status" class="form-control" />
+                                </div>
+                            </div>
+
                             <!-- Place of Birth -->
                             <div class="col-12 col-md-6 mb-3">
                                 <div class="form-outline">
@@ -85,55 +101,23 @@
                                 </div>
                             </div>
 
-                            <!-- Phone Number -->
+                           
+                            <!-- Last education -->
                             <div class="col-12 col-md-6 mb-3">
                                 <div class="form-outline">
-                                    <label class="form-label" for="contact_numbers">Phone Number</label>
-                                    <input type="text" id="contact_numbers" formControlName="contact_numbers" class="form-control" />
+                                    <label class="form-label" for="education"> Last Education</label>
+                                    <input type="education" id="education" formControlName="education" class="form-control" />
                                 </div>
                             </div>
-
-                            <!-- Civil Status -->
-                            <div class="col-12 col-md-6 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="civil_status">Civil Status</label>
-                                    <input type="text" id="civil_status" formControlName="civil_status" class="form-control" />
-                                </div>
-                            </div>
-
-                        
-                            <!-- Grade Level -->
-                            <div class="col-12 col-md-6 mb-3">
-                                <label for="gradelvl" class="form-label">Grade Level</label>
-                                <select class="form-control" id="gradelvl" formControlName="education">
-                                    <option [ngValue]="null" selected disabled>Select Grade Level</option>
+                             <!-- Program -->
+                             <div class="col-12 col-md-6 mb-3">
+                                <label for="program" class="form-label">Program</label>
+                                <select class="form-control" id="program" formControlName="program">
+                                    <option [ngValue]="null" selected disabled>Select Program</option>
                                     <option *ngFor="let s of gradelevel" [ngValue]="s">{{s}}</option>
                                 </select>
                             </div>
 
-                            <!-- Email -->
-                            <div class="col-12 col-md-6 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="email">Email</label>
-                                    <input type="email" id="email" formControlName="email" class="form-control" />
-                                </div>
-                            </div>
-
-                            <!-- Password -->
-                            <!-- <div class="col-12 col-md-6 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="password">Password</label>
-                                    <input type="password" id="password" formControlName="password" class="form-control" />
-                                </div>
-                            </div> -->
-
-                            <!-- Confirm Password -->
-                            <!-- <div class="col-12 col-md-6 mb-3">
-                                <div class="form-outline">
-                                    <label class="form-label" for="password_confirmation">Confirm Password</label>
-                                    <input type="password" id="password_confirmation" formControlName="password_confirmation" class="form-control" />
-                                </div>
-                            </div> -->
                             <!-- Submit Button -->
                             <div class="col-6 ms-auto">
                                 <button type="submit" class="btn text-white w-100">Submit</button>

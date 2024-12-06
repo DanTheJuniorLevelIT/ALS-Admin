@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="card p-2">
+      <h1>Update Class</h1>
+      <form [formGroup]="classForm" (ngSubmit)="save()">
+        
+        <!-- Grade Level -->
+        <div class="form-group p-1">
+          <label for="gradelvl" class="form-label">Grade Level</label>
+          <select class="form-control" id="gradelvl" formControlName="gradeLevel">
+            <option [ngValue]="null" selected disabled>Select Grade Level</option>
+            <option *ngFor="let s of gradelevel" [ngValue]="s">{{s}}</option>
+          </select>
+        </div>
+  
+        <!-- Subject (Dynamic) -->
+        <div class="form-group p-1">
+          <label class="form-label" for="subject">Subject</label>
+          <select class="form-control" id="subject" formControlName="subject">
+            <option [ngValue]="null" selected disabled>Select a subject</option>
+            <option *ngFor="let sub of subjects" [ngValue]="sub.subject_name">{{ sub.subject_name }}</option>
+           
+          </select>
+        </div>
+        
+
+        <!-- Teacher -->
+        <div class="form-group p-1">
+          <label for="teacher" class="form-label">Teacher</label>
+          <select class="form-control" id="teacher" formControlName="teacher">
+            <option [ngValue]="null" selected disabled>Select Teacher</option>
+            <option *ngFor="let teacher of teachers" [ngValue]="teacher.adminID">{{teacher.firstname}} {{teacher.middlename}}. {{teacher.lastname}}</option>
+          </select>
+        </div>
+
+
+        <!-- Schedule -->
+        <div class="form-group p-1">
+          <label for="Sched" class="form-label">Schedule</label>
+          <select class="form-control" id="Sched" formControlName="Sched">
+            <option [ngValue]="null" selected disabled>Select Schedule</option>
+            <option *ngFor="let s of sched" [ngValue]="s">{{s}}</option>
+          </select>
+        </div>
+  
+        <div class="form-group-container">
+          <!-- start Time -->
+          <div class="form-group">
+            <label class="form-label" for="Stime">Start Time</label>
+            <input type="time" name="Stime" formControlName="Stime" id="Stime" class="form-control" />
+          </div>
+          
+          <!-- end Time -->
+          <div class="form-group">
+            <label class="form-label" for="Etime">End Time</label>
+            <input type="time" name="Etime" formControlName="Etime" id="Etime" class="form-control" />
+          </div>
+        </div>
+        
+  
+        <!-- Location -->
+        <div class="form-group p-1">
+          <label for="location" class="form-label">Location</label>
+          <select class="form-control" id="location" formControlName="location">
+            <option [ngValue]="null" selected disabled>Select Location</option>
+            <option *ngFor="let loc of location" [ngValue]="loc.location">{{loc.location}}</option>
+          </select>
+        </div>
+  
+        <button type="submit" class="btn btn-primary"> Save </button>
+      </form>
+    </div>
+  </div>
+  

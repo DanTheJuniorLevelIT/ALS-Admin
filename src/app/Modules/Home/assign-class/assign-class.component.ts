@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ApiServiceService } from '../../../api-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-assign-class',
@@ -12,9 +13,11 @@ import { ApiServiceService } from '../../../api-service.service';
   styleUrl: './assign-class.component.css'
 })
 export class AssignClassComponent implements OnInit{
+  showPassword = false;
 
   gvalue: any = ["Male", "Female"];
   gradelevel: any = ["Basic Literacy Program","ALS Elementary","ALS Junior High School"];
+  civil: any = ["Single","Married","Divorced","Separated","Widowed"];
 
   enrollForm = new FormGroup({
     lrn: new FormControl(null),
@@ -29,6 +32,7 @@ export class AssignClassComponent implements OnInit{
     gender: new FormControl(null),
     civil_status: new FormControl(null),
     education: new FormControl(null),
+    program: new FormControl(null),
     email: new FormControl(null),
     password: new FormControl(null),
     password_confirmation: new FormControl(null),
@@ -39,44 +43,56 @@ export class AssignClassComponent implements OnInit{
    
   }
 
+ 
+
+  togglePasswordVisibility(): void {
+      this.showPassword = !this.showPassword;
+  }
+
+
   constructor(private apiService: ApiServiceService, private route: Router){}
     
-  // enrol(){
-  //     console.log(this.enrollForm.value);
-  //   }
 
-    enrol() {
-      if (this.enrollForm.valid) {
-        this.apiService.enrollUser(this.enrollForm.value).subscribe(
-          (response) => {
-            console.log('User enrolled:', response);  // Inspect response here
-            alert('User enrolled successfully!');
-            this.enrollForm.reset();
-            this.route.navigate(['/main/Home/mainHome/enroll']);
-          },
-          (error) => {
-            console.error('Error enrolling user:', error); // Check the exact error
-          }
-        );
-      } 
-    }
-    // enrol() {
-    //   if (this.enrollForm.valid) {
-    //     this.apiService.enrollUser(this.enrollForm.value).subscribe(
-    //       (response) => {
-    //         console.log('User enrolled:', response);
-    //         // Add success message logic here
-    //         alert('User enrolled successfully!'); // Simple alert
-    //         this.enrollForm.reset(); // Reset the form if needed
-    //       },
-    //       (error) => {
-    //         console.error('Error enrolling user:', error);
-    //         alert('Enrollment failed. Please try again.'); // Error message
-    //       }
-    //     );
-    //   } 
-    // }
-    
-    
+enrol() {
+  console.log(this.enrollForm.value)
+  if (this.enrollForm.valid) {
+    this.apiService.enrollUser(this.enrollForm.value).subscribe(
+      (response) => {
+        console.log('User enrolled:', response); // Inspect response here
+
+        // SweetAlert2 for success
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'User enrolled successfully!',
+          confirmButtonColor: '#3085d6',
+        }).then(() => {
+          this.enrollForm.reset();
+          this.route.navigate(['/main/Home/mainHome/enroll']);
+        });
+      },
+      (error) => {
+        console.error('Error enrolling user:', error);
+
+        // SweetAlert2 for error
+        Swal.fire({
+          icon: 'error',
+          title: 'Enrollment Failed',
+          text: 'There was an error enrolling the user. Please try again.',
+          confirmButtonColor: '#d33',
+        });
+      }
+    );
+  } else {
+    // SweetAlert2 for invalid form
+    Swal.fire({
+      icon: 'warning',
+      title: 'Invalid Form',
+      text: 'Please fill out all required fields correctly.',
+      confirmButtonColor: '#f39c12',
+    });
+  }
+}
+
 }
 

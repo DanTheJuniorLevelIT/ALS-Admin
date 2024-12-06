@@ -1,10 +1,10 @@
 <!-- HTML Template -->
 <div class="container">
     <div class="d-flex" >
-        <div>
-            <span style="font-size: 1.8em; font-weight: bold; display: block;">{{ allstud[0].subject_name }}</span>
-            <span style="font-size: 1.0em; font-weight: bold; ">{{ allstud[0].Schedule }} |</span>
-            <span style="font-size: 1.0em; font-weight: bold; "> {{ allstud[0].location }}</span>
+        <div *ngFor="let c of class">
+            <span style="font-size: 1.8em; font-weight: bold; display: block;">{{ c.subject_name }}</span>
+            <span style="font-size: 1.0em; font-weight: bold; ">{{ c.Schedule }} |</span>
+            <span style="font-size: 1.0em; font-weight: bold; "> {{ c.location }}</span>
         </div>
     </div>
     <hr>
@@ -19,7 +19,7 @@
                     <th>Birthday</th>
                     <th>Age</th>
                     <th>Email</th>
-                    
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +30,14 @@
                     <td>{{ s.birthdate | date }}</td>
                     <td>{{ calculateAge(s.birthdate) }}</td>
                     <td>{{ s.email }}</td>
+                    <td>
+                        <!-- <a class="" (click)="storeStudentId(student.studentid)" [routerLink]="['/main/Student/mainStudent/updateRecordS']">
+                            <i class="fa fa-edit" aria-hidden="true"></i> Edit
+                          </a> -->
+                          <a class="" (click)="storeStudentId()" [routerLink]="['/main/Teacher/mainTeacher/updateRoster']">
+                            <i class="fa fa-edit" aria-hidden="true"></i> Edit
+                          </a>
+                    </td>
                    
                 </tr>
             </tbody>

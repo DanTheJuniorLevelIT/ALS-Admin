@@ -1,18 +1,18 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
 import { ApiServiceService } from '../../../api-service.service';
-import Swal from 'sweetalert2';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-new-class',
+  selector: 'app-update-roster',
   standalone: true,
   imports: [RouterModule, CommonModule, ReactiveFormsModule, FormsModule],
-  templateUrl: './new-class.component.html',
-  styleUrls: ['./new-class.component.css']  // fixed `styleUrl` typo to `styleUrls`
+  templateUrl: './update-roster.component.html',
+  styleUrl: './update-roster.component.css'
 })
-export class NewClassComponent implements OnInit {
+export class UpdateRosterComponent implements OnInit{
+
   teachers: any;
   blp: any;
   elem: any;
@@ -25,24 +25,8 @@ export class NewClassComponent implements OnInit {
   classesJunior:any;
   sub:any;
 
-
   constructor(private apiService: ApiServiceService, private route: Router) {}
-
-  gradelevel: any = ["Basic Literacy Program", "ALS Elementary", "ALS Junior High School"];
-  sched: any = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  
-  classForm = new FormGroup({
-    gradeLevel: new FormControl(null),
-    subject: new FormControl(null),
-    teacher: new FormControl(null),
-    Sched: new FormControl(null),
-    Stime: new FormControl(null),
-    Etime: new FormControl(null),
-    location: new FormControl(null),
-  });
-
   ngOnInit(): void {
-    // Fetch teachers
     this.apiService.getTeacherName().subscribe(
       (response) => {
         console.log('API Response (teachers):', response);
@@ -98,52 +82,21 @@ export class NewClassComponent implements OnInit {
       }
     });
 
-    
   }
-
-  save() {
-  const formValues = this.classForm.value;
+  gradelevel: any = ["Basic Literacy Program", "ALS Elementary", "ALS Junior High School"];
+  sched: any = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   
-  const formData = {
-    gradeLevel: formValues.gradeLevel,
-    subject: formValues.subject,  // Send subject as a string
-    teacher: formValues.teacher,
-    location: formValues.location,  // Send location as a string
-    combinedSchedule: `${formValues.Sched} ${formValues.Stime} - ${formValues.Etime}`, // Combine schedule data
-    Sched: formValues.Sched,
-    Stime: formValues.Stime,
-    Etime: formValues.Etime,
-  };
+  classForm = new FormGroup({
+    gradeLevel: new FormControl(null),
+    subject: new FormControl(null),
+    teacher: new FormControl(null),
+    Sched: new FormControl(null),
+    Stime: new FormControl(null),
+    Etime: new FormControl(null),
+    location: new FormControl(null),
+  });
 
-  console.log('Final Form Data to Save:', formData);
+  save(){
 
-  this.apiService.saveNewclass(formData).subscribe(
-    (response) => {
-      console.log('Class saved:', response);
-
-      // SweetAlert for success
-      Swal.fire({
-        icon: 'success',
-        title: 'Class Saved',
-        text: 'The class has been saved successfully!',
-        confirmButtonColor: '#3085d6',
-      }).then(() => {
-        this.classForm.reset();
-        this.route.navigate(['/main/Class/mainClass/viewClass/junior']);
-      });
-    },
-    (error) => {
-      console.error('Error saving class:', error);
-
-      // SweetAlert for error
-      Swal.fire({
-        icon: 'error',
-        title: 'Save Failed',
-        text: 'An error occurred while saving the class. Please try again.',
-        confirmButtonColor: '#d33',
-      });
-    }
-  );
-}
-  
+  }
 }

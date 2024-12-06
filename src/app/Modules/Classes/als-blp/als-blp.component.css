@@ -48,9 +48,8 @@ span {
 }
 
 .table thead th {
-    background-color: #012641;
-    
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     font-weight: bold;
     text-transform: uppercase;
     padding: 12px 15px;
@@ -99,10 +98,14 @@ span {
 
 /* Close button */
 .close {
+    position: absolute; /* Position the close button */
+    top: 20px;          /* Adjust spacing from top */
+    right: 20px;        /* Align to the right */
     cursor: pointer;
-    float: right;
     font-size: 1.5rem;
     color: #333;
+    background: none;
+    border: none;
 }
 
 /* Scrollbar customization */
