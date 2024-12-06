@@ -5,6 +5,8 @@
             <span style="font-size: 1.8em; font-weight: bold; display: block;">{{ c.subject_name }}</span>
             <span style="font-size: 1.0em; font-weight: bold; ">{{ c.Schedule }} |</span>
             <span style="font-size: 1.0em; font-weight: bold; "> {{ c.location }}</span>
+            <span style="font-size: 1.0em; font-weight: bold; "> {{ c.program }}</span>
+
         </div>
     </div>
     <hr>
@@ -19,6 +21,7 @@
                     <th>Birthday</th>
                     <th>Age</th>
                     <th>Email</th>
+                    <!-- <th></th> -->
                     <th></th>
                 </tr>
             </thead>
@@ -30,13 +33,21 @@
                     <td>{{ s.birthdate | date }}</td>
                     <td>{{ calculateAge(s.birthdate) }}</td>
                     <td>{{ s.email }}</td>
-                    <td>
-                        <!-- <a class="" (click)="storeStudentId(student.studentid)" [routerLink]="['/main/Student/mainStudent/updateRecordS']">
-                            <i class="fa fa-edit" aria-hidden="true"></i> Edit
-                          </a> -->
-                          <a class="" (click)="storeStudentId()" [routerLink]="['/main/Teacher/mainTeacher/updateRoster']">
+                    <!-- <td>
+                          <a class="" (click)="storeStudentId(s.rosterid)"  (click)="openModal(s.classid)">
                             <i class="fa fa-edit" aria-hidden="true"></i> Edit
                           </a>
+                    </td> -->
+                    <td>
+                        <!-- <a class="" (click)="DeleteStudent(s.rosterid)" >
+                            <i class="fa fa-trash" aria-hidden="true" ></i> Delete
+                          </a> -->
+
+                          <button mat-raised-button
+                        matTooltip="Delete Roster" (click)="DeleteStudent(s.rosterid)"
+                        aria-label="Button that displays a tooltip when focused or hovered over">
+                        <i class="fa fa-trash" aria-hidden="true" ></i>
+                        </button>
                     </td>
                    
                 </tr>
@@ -45,5 +56,29 @@
     </div>
 
     <!-- Modal -->
+    <!-- <div class="modal" [ngClass]="{'show': isModalOpen}" >
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <span class="close" (click)="closeModal()">&times;</span>
+            @for (item of clasid; track item.subject_name){
+                <h1>{{item.subject_name}} </h1>
+                <h2>{{ item.firstname }} {{ item.middlename }} {{ item.lastname }}</h2>
+            }
+            <h3>Edit Roster</h3>
+            
+            <form [formGroup]="assignClassForm">
+                <select class="form-control" id="roster" formControlName="roster">
+                <option [ngValue]="null" selected disabled>Select Class</option>
+                <option *ngFor="let class of approveStudentBLP" [ngValue]="class.subject_name">{{class.subject_name}} | {{class.location}}</option>
+                </select>
+                <br>
+                <div class="col-12 text-end">
+                    <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="approveModal()">
+                        Approve
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+    </div> -->
    
 </div>

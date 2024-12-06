@@ -105,8 +105,8 @@
                             <!-- Last education -->
                             <div class="col-12 col-md-6 mb-3">
                                 <div class="form-outline">
-                                    <label class="form-label" for="education"> Last Education</label>
-                                    <input type="education" id="education" formControlName="education" class="form-control" />
+                                    <label class="form-label" for="last_education"> Last Education</label>
+                                    <input type="text" id="last_education" formControlName="last_education" class="form-control" />
                                 </div>
                             </div>
                              <!-- Program -->
@@ -119,9 +119,24 @@
                             </div>
 
                             <!-- Submit Button -->
-                            <div class="col-6 ms-auto">
+                            <!-- <div class="col-6 ms-auto">
                                 <button type="submit" class="btn text-white w-100">Submit</button>
-                            </div>                            
+                            </div>  -->
+                            <div class="col-12 text-end" style="display: flex; justify-content: flex-end; gap: 10px;">
+                                <button 
+                                    type="button" 
+                                    class="btn" 
+                                    style="background-color: #006184; color: #fff;" 
+                                    [routerLink]="['/main/Student/mainStudent/viewStudent/alsblp']">
+                                    Back
+                                </button>
+                                <button 
+                                    type="submit" 
+                                    class="btn" 
+                                    style="background-color: #60B3D1; color: #fff;">
+                                    Save
+                                </button>
+                            </div>                           
                         </div>
                     </form>
                 </div>

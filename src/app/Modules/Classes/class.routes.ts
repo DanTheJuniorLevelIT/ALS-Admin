@@ -6,6 +6,7 @@ import { MainClassComponent } from './main-class/main-class.component';
 import { AlsElemComponent } from './als-elem/als-elem.component';
 import { AlsJuniorComponent } from './als-junior/als-junior.component';
 import { AlsBlpComponent } from './als-blp/als-blp.component';
+import { UpdateClassComponent } from './update-class/update-class.component';
 
 export const classRoute: Routes = [
     {path: 'mainClass', component: MainClassComponent,
@@ -21,6 +22,7 @@ export const classRoute: Routes = [
             },
             {path: 'newClass', component: NewClassComponent},
             {path: 'assignClass', component: AssignClassComponent},
+            {path: 'UpdateClass', component: UpdateClassComponent},
             {path: '', redirectTo: 'viewClass', pathMatch: 'full'}
         ]
     },

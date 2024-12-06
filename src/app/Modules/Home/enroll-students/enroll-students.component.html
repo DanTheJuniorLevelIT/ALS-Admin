@@ -54,6 +54,11 @@
             }
             <h3>Assign Class</h3>
             <form [formGroup]="assignClassForm">
+                <select class="form-control" id="school_year" formControlName="school_year">
+                    <option [ngValue]="null" selected disabled>Select School Year</option>
+                    <option *ngFor="let s of sy" [ngValue]="s">{{ s }}</option>
+                </select>
+                <br>
                 <select class="form-control" id="program" formControlName="program">
                     <option [ngValue]="null" selected disabled>Select program</option>
                     <option *ngFor="let s of gradelevel" [ngValue]="s">{{ s }}</option>

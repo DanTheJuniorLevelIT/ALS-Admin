@@ -47,6 +47,7 @@ button {
     padding: 5px 10px; /* Reduce padding */
     font-size: 0.8em; /* Reduce font size */
     border-radius: 4px; /* Slightly smaller border radius */
+    margin: 3px; /* Add gap between buttons */
 }
 
 button:hover {

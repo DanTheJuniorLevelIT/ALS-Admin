@@ -42,28 +42,39 @@ export class NewTeachersComponent implements OnInit{
 
 
 
-  new() {
-    // Check if the form is valid
-    if (this.newTeacherForm.valid) {
-      // Call the API to enroll the teacher
-      this.apiService.newTeacher(this.newTeacherForm.value).subscribe(
-        (response) => {
-          console.log('User enrolled:', response);
-  
-          // SweetAlert for success
+new() {
+  // Check if the form is valid
+  if (this.newTeacherForm.valid) {
+    // Call the API to enroll the teacher
+    this.apiService.newTeacher(this.newTeacherForm.value).subscribe(
+      (response) => {
+        console.log('Teacher enrolled:', response);
+
+        // SweetAlert for success
+        Swal.fire({
+          icon: 'success',
+          title: 'Teacher Added',
+          text: 'The new teacher has been successfully enrolled!',
+          confirmButtonColor: '#3085d6',
+        }).then(() => {
+          this.route.navigate(['/main/Teacher/mainTeacher/viewTeacher']);
+        });
+      },
+      (error) => {
+        console.error('Error enrolling teacher:', error);
+
+        if (error.status === 409) {
+          // SweetAlert for duplicate entry
           Swal.fire({
-            icon: 'success',
-            title: 'Teacher Added',
-            text: 'The new teacher has been successfully enrolled!',
-            confirmButtonColor: '#3085d6',
+            icon: 'error',
+            title: 'Duplicate Entry',
+            text: 'This teacher is already registered. Please check the information.',
+            confirmButtonColor: '#d33',
           }).then(() => {
-            this.route.navigate(['/main/Teacher/mainTeacher/viewTeacher']);
+            this.newTeacherForm.reset();
           });
-        },
-        (error) => {
-          console.error('Error enrolling user:', error);
-  
-          // SweetAlert for error
+        } else {
+          // SweetAlert for generic error
           Swal.fire({
             icon: 'error',
             title: 'Enrollment Failed',
@@ -71,20 +82,22 @@ export class NewTeachersComponent implements OnInit{
             confirmButtonColor: '#d33',
           });
         }
-      );
-    } else {
-      // Mark all fields as touched to show validation errors
-      this.newTeacherForm.markAllAsTouched();
-  
-      // SweetAlert for invalid form
-      Swal.fire({
-        icon: 'warning',
-        title: 'Invalid Form',
-        text: 'Please fill out all required fields correctly before submitting.',
-        confirmButtonColor: '#f39c12',
-      });
-    }
+      }
+    );
+  } else {
+    // Mark all fields as touched to show validation errors
+    this.newTeacherForm.markAllAsTouched();
+
+    // SweetAlert for invalid form
+    Swal.fire({
+      icon: 'warning',
+      title: 'Invalid Form',
+      text: 'Please fill out all required fields correctly before submitting.',
+      confirmButtonColor: '#f39c12',
+    });
   }
+}
+
   
 
 }

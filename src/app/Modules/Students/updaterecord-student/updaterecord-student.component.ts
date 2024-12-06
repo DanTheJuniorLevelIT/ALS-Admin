@@ -34,7 +34,7 @@ export class UpdaterecordStudentComponent implements OnInit{
     gender: new FormControl(null),
     program: new FormControl(null),
     civil_status: new FormControl(null),
-    education: new FormControl(null),
+    last_education: new FormControl(null),
     email: new FormControl(null),
     password: new FormControl(null),
     password_confirmation: new FormControl(null),
@@ -58,10 +58,9 @@ export class UpdaterecordStudentComponent implements OnInit{
       this.profileForm.controls['contact_numbers'].setValue(this.student[0].contact_numbers);
       this.profileForm.controls['gender'].setValue(this.student[0].gender);
       this.profileForm.controls['civil_status'].setValue(this.student[0].civil_status);
-      this.profileForm.controls['education'].setValue(this.student[0].education);
+      this.profileForm.controls['last_education'].setValue(this.student[0].last_education);
       this.profileForm.controls['program'].setValue(this.student[0].program);
       this.profileForm.controls['email'].setValue(this.student[0].email);
-    
     })
   }
 

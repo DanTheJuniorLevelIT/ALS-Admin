@@ -52,8 +52,8 @@ export class ApiServiceService {
   getApproveStudentJUNIOR(): Observable<any> {
     return this.http.get<any>(this.url + 'api/enrol/showApproveStudentjunior');
   }
-  updateStudent(id: number, data: any) {
-    return this.http.put(this.url +`api/student/ApproveStudent/${id}`, data);
+  updateStudent(id: number, data:any) {
+    return this.http.post(this.url +`api/student/ApproveStudent/${id}`,data);
   }
 
   getlearner(id:number){
@@ -163,6 +163,21 @@ export class ApiServiceService {
   deleteTeacher(studentid: number): Observable<any> {
     return this.http.delete(`${this.url}api/deleteTeacher/${studentid}`);
   }
+
+  deleteRoster(studentid: number): Observable<any> {
+    return this.http.delete(`${this.url}api/deleteRoster/${studentid}`);
+  }
+
+  enrollstud(data: any){
+    return this.http.post(this.url + 'api/ApproveLearner', data);
+  }
+  updateClassINFO(id: number, data: any): Observable<any> {
+    return this.http.post(this.url + `api/updateClassInfo/${id}`, data);
+  }
+  deleteClass(classId: number): Observable<any> {
+    return this.http.delete(`${this.url}api/deleteClass/${classId}`);
+  }
+  
 
 }
 

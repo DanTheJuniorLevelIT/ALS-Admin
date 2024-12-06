@@ -101,9 +101,23 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-12 text-end">
-                                <button type="submit" class="btn" style="background-color: #60B3D1; color: #fff;">Save</button>
+                            <div class="col-12 text-end" style="display: flex; justify-content: flex-end; gap: 10px;">
+                                <button 
+                                    type="button" 
+                                    class="btn" 
+                                    style="background-color: #006184; color: #fff;" 
+                                    [routerLink]="['/main/Teacher/mainTeacher/viewTeacher']">
+                                    Back
+                                </button>
+                                <button 
+                                    type="submit" 
+                                    class="btn" 
+                                    style="background-color: #60B3D1; color: #fff;">
+                                    Save
+                                </button>
                             </div>
+                            
+                            
                         </div>
                     </form>
                 </div>

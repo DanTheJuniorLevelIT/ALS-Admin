@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ApiServiceService } from '../../../api-service.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
 import { SearchPipe } from '../../../search.pipe';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-als-junior',
   standalone: true,
-  imports: [RouterModule,CommonModule,SearchPipe,FormsModule,ReactiveFormsModule],
+  imports: [RouterModule,CommonModule,SearchPipe,FormsModule,ReactiveFormsModule,MatButtonModule,MatTooltipModule],
   templateUrl: './als-junior.component.html',
   styleUrl: './als-junior.component.css'
 })
@@ -27,7 +29,7 @@ export class AlsJuniorComponent implements OnInit{
       
     this.apiService.getClassJunior().subscribe((response) => {
       console.log(response);  
-      this.classJunior = response; 
+      this.classJunior = response.reverse();
       console.log('Approve student:', this.classJunior);  
     },
     (error) => {
@@ -63,6 +65,53 @@ fetchID(){
     console.error('Error fetching subjects:', error);
     }
   );
+}
+
+deleteclass(studentid: number) {
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'Do you really want to delete this student? This action cannot be undone.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'Cancel',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.apiService.deleteClass(studentid).subscribe({
+        next: (response) => {
+          Swal.fire(
+            'Deleted!',
+            'The student has been deleted successfully.',
+            'success'
+          );
+          // Optional: Refresh the student list
+          this.fetchClass();
+        },
+        error: (err) => {
+          console.error('Error deleting student:', err);
+          Swal.fire(
+            'Failed!',
+            'Failed to delete the student. Please try again.',
+            'error'
+          );
+        },
+      });
+    }
+  });
+}
+
+fetchClass(){
+  this.apiService.getClassJunior().subscribe((response) => {
+    console.log(response);  
+    this.classJunior = response.reverse();
+    console.log('Approve student:', this.classJunior);  
+  },
+  (error) => {
+    console.error('Error fetching subjects:', error);
+  }
+);
 }
 
 assignClassForm = new FormGroup({

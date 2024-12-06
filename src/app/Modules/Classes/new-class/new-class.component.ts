@@ -4,11 +4,10 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { Router, RouterModule } from '@angular/router';
 import { ApiServiceService } from '../../../api-service.service';
 import Swal from 'sweetalert2';
-
 @Component({
   selector: 'app-new-class',
   standalone: true,
-  imports: [RouterModule, CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [RouterModule, CommonModule, ReactiveFormsModule, FormsModule,],
   templateUrl: './new-class.component.html',
   styleUrls: ['./new-class.component.css']  // fixed `styleUrl` typo to `styleUrls`
 })
@@ -30,14 +29,14 @@ export class NewClassComponent implements OnInit {
 
   gradelevel: any = ["Basic Literacy Program", "ALS Elementary", "ALS Junior High School"];
   sched: any = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  time: any = ["7:30 - 8:30 AM","8:30 - 9:30 AM","10:00 - 11:00 AM","11:00 - 12:00 AM","1:00 - 2:00 PM","2:00 - 3:00 PM","3:00 - 4:00 PM","4:00 - 5:00 PM"];
   
   classForm = new FormGroup({
     gradeLevel: new FormControl(null),
     subject: new FormControl(null),
     teacher: new FormControl(null),
     Sched: new FormControl(null),
-    Stime: new FormControl(null),
-    Etime: new FormControl(null),
+    time: new FormControl(null),
     location: new FormControl(null),
   });
 
@@ -102,48 +101,59 @@ export class NewClassComponent implements OnInit {
   }
 
   save() {
-  const formValues = this.classForm.value;
+    const formValues = this.classForm.value;
+
+    const formData = {
+      gradeLevel: formValues.gradeLevel,
+      subject: formValues.subject,  // Send subject as a string
+      teacher: formValues.teacher,
+      location: formValues.location,  // Send location as a string
+      combinedSchedule: `${formValues.Sched} ${formValues.time}`, // Combine schedule dat
+     
+    };
   
-  const formData = {
-    gradeLevel: formValues.gradeLevel,
-    subject: formValues.subject,  // Send subject as a string
-    teacher: formValues.teacher,
-    location: formValues.location,  // Send location as a string
-    combinedSchedule: `${formValues.Sched} ${formValues.Stime} - ${formValues.Etime}`, // Combine schedule data
-    Sched: formValues.Sched,
-    Stime: formValues.Stime,
-    Etime: formValues.Etime,
-  };
-
-  console.log('Final Form Data to Save:', formData);
-
-  this.apiService.saveNewclass(formData).subscribe(
-    (response) => {
-      console.log('Class saved:', response);
-
-      // SweetAlert for success
-      Swal.fire({
-        icon: 'success',
-        title: 'Class Saved',
-        text: 'The class has been saved successfully!',
-        confirmButtonColor: '#3085d6',
-      }).then(() => {
-        this.classForm.reset();
-        this.route.navigate(['/main/Class/mainClass/viewClass/junior']);
-      });
-    },
-    (error) => {
-      console.error('Error saving class:', error);
-
-      // SweetAlert for error
-      Swal.fire({
-        icon: 'error',
-        title: 'Save Failed',
-        text: 'An error occurred while saving the class. Please try again.',
-        confirmButtonColor: '#d33',
-      });
-    }
-  );
-}
+    console.log('Final Form Data to Save:', formData);
+  
+    this.apiService.saveNewclass(formData).subscribe(
+      (response) => {
+        console.log('Class saved:', response);
+  
+        // SweetAlert for success
+        Swal.fire({
+          icon: 'success',
+          title: 'Class Saved',
+          text: 'The class has been saved successfully!',
+          confirmButtonColor: '#3085d6',
+        }).then(() => {
+          this.classForm.reset();
+          this.route.navigate(['/main/Class/mainClass/viewClass/junior']);
+        });
+      },
+      (error) => {
+        console.error('Error saving class:', error);
+  
+        // Handle 409 Conflict error
+        if (error.status === 409) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Duplicate Entry',
+            text: 'The class data you entered already exists. Please try again with different values.',
+            confirmButtonColor: '#d33',
+          }).then(() => {
+            this.classForm.reset();
+          });
+        } else {
+          // Handle other errors
+          Swal.fire({
+            icon: 'error',
+            title: 'Save Failed',
+            text: 'An error occurred while saving the class. Please try again.',
+            confirmButtonColor: '#d33',
+          });
+        }
+      }
+    );
+  }
+  
   
 }

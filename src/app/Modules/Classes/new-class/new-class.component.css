@@ -18,7 +18,14 @@
 .form-group {
   flex: 1; /* Equal width for both time inputs */
 }
-
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Space between fields */
+}
+.col-md-6 {
+  flex: 0 0 calc(50% - 10px); /* 50% width minus spacing */
+}
 
 /* Form heading */
 .card h1 {

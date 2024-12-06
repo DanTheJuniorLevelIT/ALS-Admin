@@ -1,57 +1,55 @@
 <mat-sidenav-container class="sidenav-container">
-    <!-- Sidebar -->
-    <mat-sidenav #sidenav mode="side" opened class="sidenav" role="navigation" aria-label="Main Menu">
-      <!-- <img src="./assets/als.jpg" alt="Profile Picture" class="profile-picture"> -->
-      <div class="profile" *ngFor="let mediaFile of admin">
-            <img [src]="'http://localhost:8000/storage/uploads/' + mediaFile.media_files"  class="rounded-circle" style="height: 120px; width: 120px; object-fit: cover;">
-            <br>
-      </div>
-      <header class="head"> Admin</header>
-      <mat-nav-list>
-        <mat-list-item [routerLink]="['/main/Home/mainHome/enroll']">
-          <mat-icon class="white-icon">home</mat-icon>
-          <span class="bg-color">Home</span>
-        </mat-list-item>
-  
-        <mat-list-item [routerLink]="['/main/Class/mainClass']">
-          <mat-icon class="white-icon">book</mat-icon>
-          <span class="bg-color">Class</span>
-        </mat-list-item>
-  
-        <mat-list-item [routerLink]="['/main/Student/mainStudent']">
-          <mat-icon class="white-icon">person</mat-icon>
-          <span class="bg-color">Students</span>
-        </mat-list-item>
-  
-        <mat-list-item [routerLink]="['/main/Teacher/mainTeacher']">
-          <mat-icon class="white-icon">person_outline</mat-icon>
-          <span class="bg-color">Teachers</span>
-        </mat-list-item>
-  
-        <mat-list-item [routerLink]="['/main/Account/mainAccount']">
-          <mat-icon class="white-icon">account_circle</mat-icon>
-          <span class="bg-color">Account</span>
-        </mat-list-item>
-  
-        <mat-list-item  (click)="logout(token)">
-          <mat-icon class="white-icon">lock_open</mat-icon>
-          <span class="bg-color">Logout</span>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <!-- Main Content -->
-    <mat-sidenav-content class="fframs">
-      <div class="header">
-        <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidebar" style="display: flex; align-items: center;">
-          <i class="fas fa-bars" style="margin-right: 8px;"></i>
-        </button>
-        <h1 style="flex: 1; text-align: center;">Alternative Learning System</h1>
-      </div>
-  
-      <div class="frame">
-        <router-outlet></router-outlet>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav mode="side" opened class="sidenav" role="navigation" aria-label="Main Menu">
+    <div class="profile" *ngFor="let mediaFile of admin">
+          <img [src]="'http://localhost:8000/storage/uploads/' + mediaFile.media_files"  class="rounded-circle" style="height: 120px; width: 120px; object-fit: cover;">
+          <br>
+    </div>
+    <header class="head"> Admin</header>
+    <mat-nav-list>
+      <mat-list-item [routerLink]="['/main/Home/mainHome/enroll']" (click)="sidenav.close()">
+        <mat-icon class="white-icon">home</mat-icon>
+        <span class="bg-color">Home</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="['/main/Class/mainClass']" (click)="sidenav.close()">
+        <mat-icon class="white-icon">book</mat-icon>
+        <span class="bg-color">Class</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="['/main/Student/mainStudent']" (click)="sidenav.close()">
+        <mat-icon class="white-icon">person</mat-icon>
+        <span class="bg-color">Students</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="['/main/Teacher/mainTeacher']" (click)="sidenav.close()">
+        <mat-icon class="white-icon">person_outline</mat-icon>
+        <span class="bg-color">Teachers</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="['/main/Account/mainAccount']" (click)="sidenav.close()">
+        <mat-icon class="white-icon">account_circle</mat-icon>
+        <span class="bg-color">Account</span>
+      </mat-list-item>
+
+      <mat-list-item (click)="logout(token); sidenav.close()">
+        <mat-icon class="white-icon">lock_open</mat-icon>
+        <span class="bg-color">Logout</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content class="fframs">
+    <div class="header">
+      <button mat-icon-button (click)="sidenav.toggle()" aria-label="Toggle sidebar" style="display: flex; align-items: center;">
+        <i class="fas fa-bars" style="margin-right: 8px;"></i>
+      </button>
+      <h1 style="flex: 1; text-align: center;">Alternative Learning System</h1>
+    </div>
+
+    <div class="frame">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -33,7 +33,7 @@ export class ViewStudentsComponent implements OnInit{
       route: 'elem'
     },
     {
-      label: 'Als Junior High School',
+      label: 'ALS Junior High School',
       icon: 'person',
       route: 'junior'
     },

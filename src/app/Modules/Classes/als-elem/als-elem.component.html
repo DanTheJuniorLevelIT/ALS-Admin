@@ -17,6 +17,8 @@
                 <th>Location</th>
                 <th></th>
                 <th></th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,17 +27,44 @@
                 <td>{{ class.firstname}} {{ class.middlename}} {{class.lastname}}</td>
                 <td>{{ class.Schedule }}</td>
                 <td>{{ class.location }}</td>
+                <!-- edit -->
                 <td> <div class="text-end">
-                    <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList', class.classid]" (click)="storeTeacherId(class.classid)">
-                        View
-                    </button>
+                    <button mat-raised-button
+                                matTooltip="Edit Class" (click)="storeTeacherId(class.classid)" [routerLink]="['/main/Class/mainClass/UpdateClass']"
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                          <i class="fa fa-edit" aria-hidden="true"></i>
+                        </button>
                 </div>
             </td>
+            <!-- view -->
+                <td> <div class="text-end">
+                    <button mat-raised-button
+                                matTooltip="View Roster" (click)="storeTeacherId(class.classid)" [routerLink]="['/main/Teacher/mainTeacher/StudentSubList', class.classid]"
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+                </div>
+            </td>
+            <!-- Add -->
                 <td>
                     <div class="text-end">
-                        <button type="button" class="btn" style="background-color: #60B3D1; color: #fff;" (click)="openModal(class.classid)">
-                            Add Student
+                        <button mat-raised-button
+                                matTooltip="Add Student" (click)="openModal(class.classid)" 
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
                         </button>
+                        
+                    </div>
+                </td>
+                <!-- delete -->
+                <td>
+                    <div class="text-end">
+                        <button mat-raised-button
+                                matTooltip="Delete Class" (click)="deleteclass(class.classid)" 
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                        
                     </div>
                 </td>
             </tr>

@@ -27,12 +27,36 @@
                     <p class="card-text"><strong>Address:</strong> {{ teacher.address }}</p>
                     <p class="card-text"><strong>Email:</strong> {{ teacher.email }}</p>
                     <div class="d-flex justify-content-center">
-                        <a class="btn btn-primary me-2" (click)="storeTeacherId(teacher.adminid)" [routerLink]="['/main/Teacher/mainTeacher/teachersubject']">
+                        <!-- <a class="btn btn-primary me-2" (click)="storeTeacherId(teacher.adminid)" [routerLink]="['/main/Teacher/mainTeacher/teachersubject']">
                             <i class="fa fa-eye" aria-hidden="true"></i> View Subjects
+                        </a> -->
+                        
+                        <!-- view -->
+                        <button mat-raised-button
+                                matTooltip="View Subjects" (click)="storeTeacherId(teacher.adminid)" [routerLink]="['/main/Teacher/mainTeacher/teachersubject']"
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                          <i class="fa fa-eye" aria-hidden="true"></i>
+                        </button>
+
+                        <!-- Delete -->
+                        <button mat-raised-button
+                                matTooltip="Delete Teacher" (click)="DeleteTeacher(teacher.adminid)"
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                          <i class="fa fa fa-trash" aria-hidden="true"></i>
+                        </button>
+
+                        <button mat-raised-button
+                                matTooltip="Edit & Upload Picture" (click)="storeTeacherId(teacher.adminid)" [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']"
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                          <i class="fa fa-edit" aria-hidden="true"></i>
+                        </button>
+
+                        <!-- <a class="btn btn-primary me-2" (click)="DeleteTeacher(teacher.adminid)" [routerLink]="['/main/Teacher/mainTeacher/viewTeacher']">
+                            <i class="fa fa fa-trash" aria-hidden="true"></i>Delete Teacher
                         </a>
                         <a class="btn btn-secondary" (click)="storeTeacherId(teacher.adminid)" [routerLink]="['/main/Teacher/mainTeacher/updateRecordT']">
                             <i class="fa fa-edit" aria-hidden="true"></i> Edit & Upload Picture
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>

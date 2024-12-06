@@ -27,6 +27,7 @@ export interface TabItem{
 export class EnrollStudentsComponent implements OnInit{
 
 gradelevel: any = ["Basic Literacy Program","ALS Elementary","ALS Junior High School"];
+sy: any = ["2024-2025","2025-2026","2026-2027","2027-2028","2029-2030"];
 pendingStudent:any;
 isModalOpen = false;
 selectedStudentId: any;
@@ -36,7 +37,8 @@ storeduserID:any;
 stuidddd:any;
 
 assignClassForm = new FormGroup({
-  program: new FormControl(null)  // Initialize with null or appropriate default
+  program: new FormControl(null),
+  school_year: new FormControl(null),
 });
 
 openModal(pendingStudent: any) {
@@ -77,8 +79,19 @@ fetchPendingStudnetName() {
   }
 );
 }
-approveModal(selectedStudent: number) {
+
+enrolle(){
   if (this.assignClassForm.valid) {
+    this.apiService.enrollstud(this.assignClassForm.value).subscribe(
+      (response) => {
+        console.log('User enrolled:', response); // Inspect response here
+      }
+    )}
+}
+
+approveModal(selectedStudent: any) {
+  if (this.assignClassForm.valid) {
+    console.log(this.assignClassForm.value);
     this.apiService.updateStudent(selectedStudent, this.assignClassForm.value).subscribe(
       (response) => {
         console.log('User enrolled:', response);

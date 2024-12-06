@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card p-2">
-      <h1>Create Class</h1>
+      <h1>Edit Class</h1>
       <form [formGroup]="classForm" (ngSubmit)="save()">
           <!-- Grade Level and Teacher on one line -->
           <div class="row p-1">
@@ -8,14 +8,14 @@
                   <label for="gradelvl" class="form-label">Program</label>
                   <select class="form-control" id="gradelvl" formControlName="gradeLevel">
                       <option [ngValue]="null" selected disabled>Select Grade Level</option>
-                      <option *ngFor="let s of gradelevel" [ngValue]="s">{{s}}</option>
+                      <option *ngFor="let s of gradelevel" disabled [ngValue]="s">{{s}}</option>
                   </select>
               </div>
               <div class="col-md-6">
                   <label for="teacher" class="form-label">Teacher</label>
                   <select class="form-control" id="teacher" formControlName="teacher">
                       <option [ngValue]="null" selected disabled>Select Teacher</option>
-                      <option *ngFor="let teacher of teachers" [ngValue]="teacher.adminID">
+                      <option *ngFor="let teacher of teachers" disabled [ngValue]="teacher.adminID">
                           {{teacher.firstname}} {{teacher.middlename}}. {{teacher.lastname}}
                       </option>
                   </select>
@@ -28,7 +28,7 @@
                   <label class="form-label" for="subject">Subject</label>
                   <select class="form-control" id="subject" formControlName="subject">
                       <option [ngValue]="null" selected disabled>Select a subject</option>
-                      <option *ngFor="let sub of subjects" [ngValue]="sub.subject_name">
+                      <option *ngFor="let sub of subjects" disabled [ngValue]="sub.subject_name">
                           {{ sub.subject_name }}
                       </option>
                   </select>
