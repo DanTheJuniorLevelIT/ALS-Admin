@@ -22,6 +22,11 @@
         <span class="bg-color">Students</span>
       </mat-list-item>
 
+      <mat-list-item [routerLink]="['/main/Reports/mainReports']" (click)="sidenav.close()">
+        <mat-icon class="white-icon">person</mat-icon>
+        <span class="bg-color">Reports</span>
+      </mat-list-item>
+
       <mat-list-item [routerLink]="['/main/Teacher/mainTeacher']" (click)="sidenav.close()">
         <mat-icon class="white-icon">person_outline</mat-icon>
         <span class="bg-color">Teachers</span>

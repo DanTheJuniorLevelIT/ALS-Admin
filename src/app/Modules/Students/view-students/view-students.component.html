@@ -1,6 +1,5 @@
 <div class="container">
 <div class="row">
-        
     <div class="col-md-4 col-sm-12 mb-3">
         <a [routerLink]="['/main/Home/mainHome/enroll']" class="btn btn-block w-100" style="background-color: #012641; color: #fff;">
             Pending Students
@@ -13,8 +12,8 @@
     </div>
 </div>
 <div class=" py-3 m-3">
-   <h1>List of Student</h1>
-   <hr>
+   <!-- <h1>List of Student</h1>
+   <hr> -->
     <nav mat-tab-nav-bar [tabPanel]="tabPanel">
         @for(tabItem of tabs; track tabItem){
         <a mat-tab-link 
@@ -29,4 +28,69 @@
     <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
     <router-outlet></router-outlet>
 </div>
+
+
+
+<!-- <form>
+    <mat-form-field class="form-field-spacing">
+      <mat-label>Select Program</mat-label>
+      <mat-select [(ngModel)]="selectedProgram" name="program">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field class="form-field-spacing">
+      <mat-label>Select Location</mat-label>
+      <mat-select [(ngModel)]="selectedLocation" name="location">
+        <mat-option *ngFor="let loc of location" [value]="loc.location">
+          {{ loc.location }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  
+  
+  <div class="table-responsive">
+    <table class="table table-border table-striped text-center">
+      <thead>
+        <tr class="align-middle">
+          <th>Name</th>
+          <th>Program</th>
+          <th>School Year</th>
+          <th>Gender</th>
+          <th>Birthday</th>
+          <th>Email</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of filteredStudents()">
+          <td>{{ student.firstname}} {{ student.middlename }}. {{ student.lastname }}</td>
+          <td>{{ student.program }}</td>
+          <td>{{ student.school_year }}</td>
+          <td>{{ student.gender }}</td>
+          <td>{{ student.birthdate | date }}</td>
+          <td>{{ student.email }}</td>
+          <td>
+            <a (click)="storeStudentId(student.studentid)" 
+               [routerLink]="['/main/Student/mainStudent/updateRecordS']">
+              <i class="fa fa-edit" aria-hidden="true"></i> Edit
+            </a>
+          </td>
+          <td>
+            <a (click)="DeleteStudent(student.studentid)" 
+               [routerLink]="['/main/Student/mainStudent/viewStudent/alsblp']">
+              <i class="fa fa-trash" aria-hidden="true"></i> Delete
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  
+  
+  
 </div>

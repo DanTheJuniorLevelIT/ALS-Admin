@@ -1,0 +1,48 @@
+<form>
+    <mat-form-field class="form-field-spacing">
+      <mat-label>Select Program</mat-label>
+      <mat-select [(ngModel)]="selectedProgram" name="program">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field class="form-field-spacing">
+      <mat-label>Select Location</mat-label>
+      <mat-select [(ngModel)]="selectedLocation" name="location">
+        <mat-option *ngFor="let loc of location" [value]="loc.location">
+          {{ loc.location }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  
+  
+  <div class="table-responsive">
+    <table class="table table-border table-striped text-center">
+      <thead>
+        <tr class="align-middle">
+          <th>Name</th>
+          <th>Program</th>
+          <th>School Year</th>
+          <th>Subject</th>
+          <th>Location</th>
+          <!-- <th>Email</th> -->
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of filteredStudents()">
+          <td>{{ student.firstname}} {{ student.middlename }}. {{ student.lastname }}</td>
+          <td>{{ student.program }}</td>
+          <td>{{ student.school_year }}</td>
+          <td>{{ student.subject_name }}</td>
+          <td>{{ student.location}}</td>
+          <!-- <td>{{ student.email }}</td> -->
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

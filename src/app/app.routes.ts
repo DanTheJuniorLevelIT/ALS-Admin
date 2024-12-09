@@ -6,6 +6,7 @@ import { accountRoute } from './Modules/Account/account.routes';
 import { classRoute } from './Modules/Classes/class.routes';
 import { studentRoute } from './Modules/Students/student.routes';
 import { teacherRoute } from './Modules/Teachers/teacher.routes';
+import { reportRoute } from './Modules/Reports/reports.routes';
 
 export const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -22,6 +23,10 @@ export const routes: Routes = [
             {
                 path: 'Student',
                 loadChildren: () => import('./Modules/Students/student.routes').then(r=>studentRoute)
+            },
+            {
+                path: 'Reports',
+                loadChildren: () => import('./Modules/Reports/reports.routes').then(r=>reportRoute)
             },
             {
                 path: 'Teacher',

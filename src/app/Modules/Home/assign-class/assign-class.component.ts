@@ -66,11 +66,12 @@ export class AssignClassComponent implements OnInit{
 
   enrol() {
     console.log(this.enrollForm.value);
+    // this.approveStud();
     if (this.enrollForm.valid) {
       this.apiService.enrollUser(this.enrollForm.value).subscribe(
         (response) => {
           console.log('User enrolled:', response); // Inspect response here
-  
+          
           // SweetAlert2 for success
           Swal.fire({
             icon: 'success',
@@ -78,7 +79,7 @@ export class AssignClassComponent implements OnInit{
             text: 'User enrolled successfully!',
             confirmButtonColor: '#3085d6',
           }).then(() => {
-            this.approveStud();
+            
             this.enrollForm.reset();
             this.route.navigate(['/main/Home/mainHome/enroll']);
           });

@@ -139,3 +139,10 @@ h1{
   font-weight: bold;
   border-bottom: 2px solid #fff;
 }
+/*llllll*/
+.form-field-spacing {
+    margin-bottom: 16px; /* Adjust this value as needed */
+    margin-right: 16px;
+    width: 30%; /* Ensure full width */
+  }
+  

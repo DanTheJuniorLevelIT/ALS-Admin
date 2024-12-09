@@ -5,6 +5,10 @@
 .sidenav {
   width: 225px;
   background-color: #012641;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .fframs {
@@ -32,6 +36,7 @@
   color: #f2f2f2;
   text-align: center;
   font-size: large;
+  position: sticky;
 }
 
 .white-icon {
@@ -43,11 +48,21 @@
   background-color: #084e75; /* Add hover background color */
   transition: background-color 0.3s ease; /* Smooth hover transition */
 }
+.mat-nav-list {
+  flex: 1;
+  overflow-y: auto;
+  position: sticky;
+}
 
 .header {
   display: flex;
   align-items: center;
   padding: 13px;
+  position: sticky;
+  top: 0;
+  background: #dcdcdc;
+  z-index: 100;
+  /* transition: top 0.3s ease-in-out; */
 }
 
 .header h1 {

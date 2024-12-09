@@ -105,3 +105,43 @@ h4, span {
 .modal-dialog-scrollable::-webkit-scrollbar-track {
     background-color: #f0f0f0;
 }
+
+/* Custom styles for header section */
+/* .header-section .header-title, 
+.header-section .header-count {
+    font-weight: bold;
+} */
+
+/* Default sizes for larger screens */
+.header-section .header-title {
+    font-size: 1.3rem;  /* Larger font for the title */
+}
+
+.header-section .header-count {
+    font-size: 1.3rem; /* Larger font for the count */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {  /* Tablets and smaller screens */
+    .header-section .header-title {
+        font-size: 20px;
+    }
+
+    .header-section .header-count {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {  /* Mobile devices */
+    .header-section {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center;
+        
+    }
+
+    .header-section .header-title,
+    .header-section .header-count {
+        font-size: 18px;
+        margin-bottom: 0.5rem;
+    }
+}

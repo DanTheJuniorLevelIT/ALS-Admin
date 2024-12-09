@@ -177,7 +177,13 @@ export class ApiServiceService {
   deleteClass(classId: number): Observable<any> {
     return this.http.delete(`${this.url}api/deleteClass/${classId}`);
   }
-  
+
+  getAllApproveStudent(): Observable<any> {
+    return this.http.get<any>(this.url + 'api/enrol/showAllApproveStudent');
+  }
+  getAllRoster(): Observable<any> {
+    return this.http.get<any>(this.url + 'api/enrol/getAllRoster');
+  }
 
 }
 

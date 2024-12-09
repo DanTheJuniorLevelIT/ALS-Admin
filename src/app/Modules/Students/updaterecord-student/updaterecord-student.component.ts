@@ -83,7 +83,7 @@ export class UpdaterecordStudentComponent implements OnInit{
             text: 'The student information has been updated successfully!',
             confirmButtonColor: '#3085d6',
           }).then(() => {
-            this.route.navigate(['/main/Student/mainStudent/viewStudent/alsblp']);
+            this.route.navigate(['/main/Student/mainStudent/viewStudent']);
           });
         },
         (error) => {
